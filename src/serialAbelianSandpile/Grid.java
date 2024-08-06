@@ -37,19 +37,19 @@ public class Grid {
 		
 	}
 	
-	public Grid(Grid copyGrid, int head, int tail) {
-//		Create partial copy of the grid
-		this(tail-head, copyGrid.columns - 2);
-		System.out.println(tail);
-		for (int i=0; i < tail - head ; i++) {
-			for (int j=1; j < copyGrid.columns - 1 ; j++ ) {
-				System.out.println("head:" + head + "tail" + tail);
-				System.out.println("Cell row:" + Integer.toString(i + head) + "column:" + Integer.toString(j) + "added" );
-				this.grid[i][j] = copyGrid.get(i, j);
-			}
-			
-		}
-	}
+//	public Grid(Grid copyGrid, int head, int tail) {
+////		Create partial copy of the grid
+//		this(tail-head, copyGrid.columns - 2);
+//		System.out.println(tail);
+//		for (int i=0; i < tail - head ; i++) {
+//			for (int j=1; j < copyGrid.columns - 1 ; j++ ) {
+//				System.out.println("head:" + head + "tail" + tail);
+//				System.out.println("Cell row:" + Integer.toString(i + head) + "column:" + Integer.toString(j) + "added" );
+//				this.grid[i][j] = copyGrid.get(i, j);
+//			}
+//			
+//		}
+//	}
 	
 	public Grid(Grid copyGrid) {
 		this(copyGrid.rows,copyGrid.columns); //call constructor above
@@ -92,11 +92,11 @@ public class Grid {
 		}
 	}
 	
-	//key method to calculate the next update grod
-	boolean update() {
+	//key method to calculate the next update grid
+	boolean update(int head, int tail) {
 		boolean change=false;
 		//do not update border
-		for( int i = 1; i<rows-1; i++ ) {
+		for( int i = head; i<tail-1; i++ ) {
 			for( int j = 1; j<columns-1; j++ ) {
 				updateGrid[i][j] = (grid[i][j] % 4) + 
 						(grid[i-1][j] / 4) +
@@ -108,10 +108,9 @@ public class Grid {
 				}
 		}} //end nested for
 //	if (change) { nextTimeStep();}
+		printGrid();
 	return change;
 	}
-	
-	
 	
 	//display the grid in text format
 	void printGrid( ) {

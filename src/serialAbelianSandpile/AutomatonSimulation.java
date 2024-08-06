@@ -89,9 +89,7 @@ class AutomatonSimulation{
 //	    		counter++;
 //	    	}
 //    	TODO Fix this
-    	while(pool.invoke(simulationGrid)) {
-    		simulationGrid.getGrid().nextTimeStep();
-    	};
+    	pool.invoke(simulationGrid);
    		tock(); //end timer
    		
         System.out.println("Simulation complete, writing image...");
