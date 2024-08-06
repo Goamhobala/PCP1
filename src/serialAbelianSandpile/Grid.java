@@ -107,8 +107,8 @@ public class Grid {
 					change=true;
 				}
 		}} //end nested for
-//	if (change) { nextTimeStep();}
-		printGrid();
+	if (change) { nextTimeStep();}
+	printGrid();
 	return change;
 	}
 	

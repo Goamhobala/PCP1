@@ -13,12 +13,11 @@ public class UpdateGrid extends RecursiveTask<Boolean>{
 		this.gridContainer = gridContainer;
 		this.head = head;
 		this.tail = tail ; 
-//		this.cutoff = gridContainer.getRows() / Runtime.getRuntime().availableProcessors();
-		this.cutoff = 16;
+		this.cutoff = gridContainer.getRows() / Runtime.getRuntime().availableProcessors();
 	}
 	
 	public UpdateGrid(Grid gridContainer) {
-		this(gridContainer, 1, gridContainer.getRows());
+		this(gridContainer, 1, gridContainer.getRows() -1);
 	}
 	
 	public Grid getGrid() {
