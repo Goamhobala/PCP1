@@ -84,20 +84,22 @@ public class Grid {
 	
 
 	//for the next timestep - copy updateGrid into grid
-	public void nextTimeStep() {
+	public void nextTimeStep(int head, int tail) {
 		for(int i=1; i<rows-1; i++ ) {
 			for( int j=1; j<columns-1; j++ ) {
 				this.grid[i][j]=updateGrid[i][j];
 			}
 		}
+		update(head, tail);
 	}
 	
 	//key method to calculate the next update grid
 	boolean update(int head, int tail) {
 		boolean change=false;
 		//do not update border
-		for( int i = head; i<tail-1; i++ ) {
+		for( int i = head; i<tail + 1; i++ ) {
 			for( int j = 1; j<columns-1; j++ ) {
+				System.out.println("Updating" + i + " " + j);
 				updateGrid[i][j] = (grid[i][j] % 4) + 
 						(grid[i-1][j] / 4) +
 						grid[i+1][j] / 4 +
@@ -107,8 +109,10 @@ public class Grid {
 					change=true;
 				}
 		}} //end nested for
-	if (change) { nextTimeStep();}
-	printGrid();
+	if (change) { 
+		System.out.println("Next step");
+		nextTimeStep(head, tail);
+		}
 	return change;
 	}
 	

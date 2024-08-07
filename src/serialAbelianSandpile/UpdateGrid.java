@@ -14,6 +14,7 @@ public class UpdateGrid extends RecursiveTask<Boolean>{
 		this.head = head;
 		this.tail = tail ; 
 		this.cutoff = gridContainer.getRows() / Runtime.getRuntime().availableProcessors();
+//		this.cutoff = 16;
 	}
 	
 	public UpdateGrid(Grid gridContainer) {
@@ -27,12 +28,11 @@ public class UpdateGrid extends RecursiveTask<Boolean>{
 	@Override
 	public Boolean compute() {
 		if (tail - head < cutoff) {
-			System.out.println("Updating" + head + " " + tail);
-			return gridContainer.update(head, tail);
+			return gridContainer.update(head, tail + 1);
 			
 		}
 		else {
-
+// TODO: Problem, stops after going through each position once
 			int mid = (tail + head)/2;
 			UpdateGrid left = new UpdateGrid(gridContainer ,head, mid);
 			UpdateGrid right = new UpdateGrid(gridContainer ,mid,  tail);
