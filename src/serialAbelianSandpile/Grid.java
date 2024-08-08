@@ -97,9 +97,23 @@ public class Grid {
 	boolean update(int head, int tail) {
 		boolean change=false;
 		//do not update border
-		for( int i = head; i<tail + 1; i++ ) {
+		int start, end;
+		if (head != 1) {
+			start = head -1 ;
+		}
+		else {
+			start = head;
+		}
+		if (tail != rows) {
+			end = tail + 1;
+		}
+		else {
+			end = tail;
+		}
+		
+		for( int i = start; i < end; i++ ) {
 			for( int j = 1; j<columns-1; j++ ) {
-				System.out.println("Updating" + i + " " + j);
+//				System.out.println("Updating" + i + " " + j);
 				updateGrid[i][j] = (grid[i][j] % 4) + 
 						(grid[i-1][j] / 4) +
 						grid[i+1][j] / 4 +
@@ -110,7 +124,7 @@ public class Grid {
 				}
 		}} //end nested for
 	if (change) { 
-		System.out.println("Next step");
+//		System.out.println("Next step");
 		nextTimeStep(head, tail);
 		}
 	return change;

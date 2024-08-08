@@ -15,10 +15,12 @@ public class UpdateGrid extends RecursiveTask<Boolean>{
 		this.tail = tail ; 
 		this.cutoff = gridContainer.getRows() / Runtime.getRuntime().availableProcessors();
 //		this.cutoff = 16;
+//		System.out.println("CUTOFF " + cutoff + "head " + head + "tail "  + tail);
+		
 	}
 	
 	public UpdateGrid(Grid gridContainer) {
-		this(gridContainer, 1, gridContainer.getRows() -1);
+		this(gridContainer, 1, gridContainer.getRows()-1);
 	}
 	
 	public Grid getGrid() {
@@ -28,7 +30,8 @@ public class UpdateGrid extends RecursiveTask<Boolean>{
 	@Override
 	public Boolean compute() {
 		if (tail - head < cutoff) {
-			return gridContainer.update(head, tail + 1);
+			
+			return gridContainer.update(head, tail);
 			
 		}
 		else {
