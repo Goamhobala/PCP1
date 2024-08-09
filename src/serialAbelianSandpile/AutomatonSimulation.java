@@ -69,6 +69,7 @@ class AutomatonSimulation{
     
     	// Read from input .csv file
     	simulationGrid = new UpdateGrid(new Grid(readArrayFromCSV(inputFileName)));
+    	Grid grid = simulationGrid.getGrid();
     	ForkJoinPool pool = new ForkJoinPool();
 
     	//for debugging - hardcoded re-initialisation options
@@ -90,10 +91,11 @@ class AutomatonSimulation{
 //	    	}
 //    	TODO Fix this
     	pool.invoke(simulationGrid);
+//    	grid.synchroniseGrid(grid.updatedGrid);
    		tock(); //end timer
    		
         System.out.println("Simulation complete, writing image...");
-    	simulationGrid.getGrid().gridToImage(outputFileName); //write grid as an image - you must do this.
+    	grid.gridToImage(outputFileName); //write grid as an image - you must do this.
     	//Do NOT CHANGE below!
     	//simulation details - you must keep these lines at the end of the output in the parallel versions      	System.out.printf("\t Rows: %d, Columns: %d\n", simulationGrid.getRows(), simulationGrid.getColumns());
 		System.out.printf("Number of steps to stable state: %d \n",counter);
