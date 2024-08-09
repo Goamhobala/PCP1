@@ -1,9 +1,10 @@
 package serialAbelianSandpile;
 import java.util.ArrayList;
+import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.RecursiveTask;
 import java.lang.Runtime;
 
-public class UpdateGrid extends RecursiveTask<Boolean>{
+public class UpdateGrid extends RecursiveAction{
 	private Grid gridContainer;
 	private int head;
 	private int tail;
@@ -16,6 +17,8 @@ public class UpdateGrid extends RecursiveTask<Boolean>{
 		this.head = head;
 		this.tail = tail ; 
 		this.cutoff = gridContainer.getRows() / Runtime.getRuntime().availableProcessors();
+		// plus the sink
+		this.localUpdatedGrid = new int[gridContainer.getRows() + 2][gridContainer.getColumns()+ 2];
 		
 		this.cutoff = 16;
 //		System.out.println("CUTOFF " + cutoff + "head " + head + "tail "  + tail);
@@ -35,27 +38,29 @@ public class UpdateGrid extends RecursiveTask<Boolean>{
 	}
 
 	@Override
-	public Boolean compute() {
+	public void compute() {
 		if (tail - head < cutoff) {
-			while(gridContainer.update(head, tail)) {
+			while(!gridContainer.update(head, tail, localUpdatedGrid)) {
 //				System.out.println("Updating: "+ head + " " + tail);
 				continue;
 			};
-			return true;
-			
+//			System.out.println("next step");
+			gridContainer.nextTimeStep(gridContainer.convertStart(head), gridContainer.convertEnd(tail), localUpdatedGrid);
 		}
 		else {
 // TODO: Problem, stops after going through each position once
 			int mid = (tail + head)/2;
-			UpdateGrid left = new UpdateGrid(gridContainer ,head, mid);
-			UpdateGrid right = new UpdateGrid(gridContainer ,mid,  tail);
+			UpdateGrid left = new UpdateGrid(gridContainer,head, mid);
+			UpdateGrid right = new UpdateGrid(gridContainer,mid - 1,  tail);
 			left.fork();
-			if (right.compute() && left.join()) {
-				return true;
-			}
-			else {
-				return false;
-			}
+			right.compute();
+			left.join();
+//			if (right.compute() && left.join()) {
+//				return true;
+//			}
+//			else {
+//				return false;
+//			}
 
 			
 		}

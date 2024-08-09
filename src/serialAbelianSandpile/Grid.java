@@ -82,13 +82,13 @@ public class Grid {
 			}
 	}
 	
-	public void synchroniseGrid(int[][] newGrid) {
-		for(int i=1; i<rows; i++ ) {
-			for( int j=1; j<columns; j++ ) {
-				this.grid[i][j]=newGrid[i][j];
-			}
-		}
-	}
+//	public void synchroniseGrid(int[][] newGrid) {
+//		for(int i=1; i<rows; i++ ) {
+//			for( int j=1; j<columns; j++ ) {
+//				this.grid[i][j]=newGrid[i][j];
+//			}
+//		}
+//	}
 	//for the next timestep - copy updatedGrid into grid
 	public void nextTimeStep(int start, int end, int [][] localUpdatedGrid) {
 		for(int i=start; i <= end; i++ ) {
@@ -98,19 +98,19 @@ public class Grid {
 		}
 //		update(start, end);
 	}
-	
-	//key method to calculate the next update grid
-	boolean update(int head, int tail) {
-		int [][] localUpdatedGrid = new int[this.rows][this.columns];
-		boolean change=false;
-		//do not update border
-		int start, end;
+	public int convertStart(int head) {
+		int start;
 		if (head != 1) {
 			start = head -1 ;
 		}
 		else {
 			start = head;
 		}
+		return start;
+	}
+	
+	public int convertEnd(int tail) {
+		int end;
 		if (tail != rows) {
 			end = tail + 1;
 		}
@@ -118,6 +118,19 @@ public class Grid {
 			end = tail;
 		}
 		
+		return end;
+		
+	}
+	
+	//key method to calculate the next update grid
+	boolean update(int head, int tail, int [][] localUpdatedGrid) {
+//		int [][] localUpdatedGrid = new int[this.rows][this.columns];
+		boolean change=false;
+		//do not update border
+		int start = convertStart(head);
+		int end = convertEnd(tail);
+
+
 		for( int i = start; i <= end; i++ ) {
 			for( int j = 1; j<columns-1; j++ ) {
 				System.out.println("Updating" +  i + " " + j);
@@ -131,10 +144,10 @@ public class Grid {
 					change=true;
 				}
 		}} //end nested for
-	if (change) { 
-//		System.out.println("Next step");
-		nextTimeStep(start, end, localUpdatedGrid);
-		}
+//	if (change) { 
+////		System.out.println("Next step");
+//		nextTimeStep(start, end, localUpdatedGrid);
+//		}
 	return change;
 	}
 	
