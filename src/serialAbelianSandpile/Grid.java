@@ -13,14 +13,12 @@ public class Grid {
 	private int rows, columns;
 	private int [][] grid; //grid 
 	int [][] updatedGrid;//grid for next time step
-	int [][][] updatedGrids;
     
 	public Grid(int w, int h) {
 		rows = w+2; //for the "sink" border
 		columns = h+2; //for the "sink" border
 		grid = new int[this.rows][this.columns];
 		updatedGrid=new int[this.rows][this.columns];
-		updatedGrids = new int [w][this.rows][this.columns];
 		/* grid  initialization */
 		for(int i=0; i<this.rows; i++ ) {
 			for( int j=0; j<this.columns; j++ ) {
@@ -117,42 +115,16 @@ public class Grid {
 //		System.out.println("One step done");
     	return nextStep;
 	}
-	public int convertStart(int head) {
-		int start;
-		if (head != 1) {
-			start = head -1 ;
-		}
-		else {
-			start = head;
-		}
-		return start;
-	}
-	
-	public int convertEnd(int tail) {
-		int end;
-		if (tail != rows -1) {
-			end = tail + 1;
-		}
-		else {
-			end = tail;
-		}
-		
-		return end;
-		
-	}
 	
 	//key method to calculate the next update grid
 	boolean update(int head, int tail, int [][] localUpdatedGrid) {
 //		int [][] localUpdatedGrid = new int[this.rows][this.columns];
 		boolean change=false;
 		//do not update border
-//		int start = convertStart(head);
-//		int end = convertEnd(tail);
-		int start = head;
-		int end = tail;
 
 
-		for( int i = start; i <= end; i++ ) {
+
+		for( int i = head; i <= tail; i++ ) {
 			for( int j = 1; j<columns-1; j++ ) {
 //				System.out.println("Updating" +  i + " " + j);
 				int previous = localUpdatedGrid[i][j];

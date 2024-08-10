@@ -1,6 +1,4 @@
 package serialAbelianSandpile;
-import java.util.ArrayList;
-import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.RecursiveTask;
 import java.lang.Runtime;
 
@@ -10,13 +8,12 @@ public class UpdateGrid extends RecursiveTask<int[][]>{
 	private int tail;
 	private int cutoff;
 	private int [][] localUpdatedGrid;
-	protected static ArrayList<int[][]> updatedGrids;
 	
-	public UpdateGrid(Grid gridContainer, int head, int tail) {
+	public UpdateGrid(Grid gridContainer, int head, int tail, int cutoff) {
 		this.gridContainer = gridContainer;
 		this.head = head;
 		this.tail = tail ; 
-		this.cutoff = gridContainer.getRows() / Runtime.getRuntime().availableProcessors();
+		this.cutoff = cutoff;
 		// plus the sink
 
 		
@@ -26,14 +23,20 @@ public class UpdateGrid extends RecursiveTask<int[][]>{
 	}
 	
 	public UpdateGrid(Grid gridContainer) {
-		this(gridContainer, 1, gridContainer.getRows());
+		this(gridContainer, 1, gridContainer.getRows(), gridContainer.getRows() / Runtime.getRuntime().availableProcessors());
 	}
 	
 	public Grid getGrid() {
 		return gridContainer;
 	}
 	
-
+	public void init() {
+		/*
+		 * Reinitialise the UpdateGrid
+		 * */
+		
+		
+	}
 	@Override
 	public int[][] compute() {
 		if (tail - head < cutoff) {
@@ -53,8 +56,8 @@ public class UpdateGrid extends RecursiveTask<int[][]>{
 		else {
 			int[][] mergedGrid = new int[gridContainer.getRows() + 2][gridContainer.getColumns()+ 2];
 			int mid = (tail + head)/2;
-			UpdateGrid left = new UpdateGrid(gridContainer,head, mid);
-			UpdateGrid right = new UpdateGrid(gridContainer,mid,  tail);
+			UpdateGrid left = new UpdateGrid(gridContainer,head, mid, cutoff);
+			UpdateGrid right = new UpdateGrid(gridContainer,mid,  tail, cutoff);
 			left.fork();
 			int[][] updatedRight = right.compute();
 			int[][] updatedLeft = left.join();

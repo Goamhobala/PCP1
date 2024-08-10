@@ -11,7 +11,7 @@ JAVA_FILES = $(wildcard $(SRC_DIR)/*.java)
 CLASS_FILES = $(patsubst $(SRC_DIR)/%.java, $(BIN_DIR)/%.class, $(JAVA_FILES))
 
 # Compilation flags
-JAVAC_FLAGS = -d bin -sourcepath src
+JAVAC_FLAGS = -d -Xmx4096m bin -sourcepath src
 
 # Main class
 MAIN_CLASS = serialAbelianSandpile.AutomatonSimulation

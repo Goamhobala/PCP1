@@ -70,7 +70,7 @@ class AutomatonSimulation{
     	// Read from input .csv file
     	simulationGrid = new UpdateGrid(new Grid(readArrayFromCSV(inputFileName)));
     	Grid grid = simulationGrid.getGrid();
-    	ForkJoinPool pool = new ForkJoinPool();
+    	ForkJoinPool pool = ForkJoinPool.commonPool();
 
     	//for debugging - hardcoded re-initialisation options
     	//simulationGrid.set(rows/2,columns/2,rows*columns*2);
