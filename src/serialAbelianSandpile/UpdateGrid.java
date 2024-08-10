@@ -4,7 +4,7 @@ import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.RecursiveTask;
 import java.lang.Runtime;
 
-public class UpdateGrid extends RecursiveAction{
+public class UpdateGrid extends RecursiveTask<int[][]>{
 	private Grid gridContainer;
 	private int head;
 	private int tail;
@@ -20,7 +20,7 @@ public class UpdateGrid extends RecursiveAction{
 		// plus the sink
 		this.localUpdatedGrid = new int[gridContainer.getRows() + 2][gridContainer.getColumns()+ 2];
 		
-		this.cutoff = 16;
+//		this.cutoff = 16;
 //		System.out.println("CUTOFF " + cutoff + "head " + head + "tail "  + tail);
 		
 	}
@@ -33,34 +33,37 @@ public class UpdateGrid extends RecursiveAction{
 		return gridContainer;
 	}
 	
-	public void setGrid(Grid newGrid) {
-		this.gridContainer = newGrid;
-	}
 
 	@Override
-	public void compute() {
+	public int[][] compute() {
 		if (tail - head < cutoff) {
-			while(!gridContainer.update(head, tail, localUpdatedGrid)) {
-//				System.out.println("Updating: "+ head + " " + tail);
+			while(gridContainer.update(head, tail, localUpdatedGrid)) {
+				System.out.println("Updating: "+ head + " " + tail);
 				continue;
 			};
 //			System.out.println("next step");
-			gridContainer.nextTimeStep(gridContainer.convertStart(head), gridContainer.convertEnd(tail), localUpdatedGrid);
+//			gridContainer.nextTimeStep(gridContainer.convertStart(head), gridContainer.convertEnd(tail), localUpdatedGrid);
+			return localUpdatedGrid;
 		}
 		else {
-// TODO: Problem, stops after going through each position once
+			int[][] mergedGrid = new int[gridContainer.getRows() + 2][gridContainer.getColumns()+ 2];
 			int mid = (tail + head)/2;
 			UpdateGrid left = new UpdateGrid(gridContainer,head, mid);
-			UpdateGrid right = new UpdateGrid(gridContainer,mid - 1,  tail);
+			UpdateGrid right = new UpdateGrid(gridContainer,mid,  tail);
 			left.fork();
-			right.compute();
-			left.join();
-//			if (right.compute() && left.join()) {
-//				return true;
-//			}
-//			else {
-//				return false;
-//			}
+			int[][] updatedRight = right.compute();
+			int[][] updatedLeft = left.join();
+			for (int i = head; i <= tail; i++) {
+				for (int j = 1 ; j <= gridContainer.getColumns() - 1 ; j++) {
+					if (i <= mid) {
+						mergedGrid[i][j] = updatedLeft[i][j];
+					}
+					else {
+						mergedGrid[i][j] = updatedRight[i][j];
+					}
+				}
+			}
+			return mergedGrid;
 
 			
 		}

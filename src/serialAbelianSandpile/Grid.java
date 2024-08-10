@@ -4,6 +4,8 @@ package serialAbelianSandpile;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.ForkJoinPool;
+
 import javax.imageio.ImageIO;
 
 //This class is for the grid for the Abelian Sandpile cellular automaton
@@ -11,12 +13,14 @@ public class Grid {
 	private int rows, columns;
 	private int [][] grid; //grid 
 	int [][] updatedGrid;//grid for next time step
+	int [][][] updatedGrids;
     
 	public Grid(int w, int h) {
 		rows = w+2; //for the "sink" border
 		columns = h+2; //for the "sink" border
 		grid = new int[this.rows][this.columns];
 		updatedGrid=new int[this.rows][this.columns];
+		updatedGrids = new int [w][this.rows][this.columns];
 		/* grid  initialization */
 		for(int i=0; i<this.rows; i++ ) {
 			for( int j=0; j<this.columns; j++ ) {
@@ -90,13 +94,28 @@ public class Grid {
 //		}
 //	}
 	//for the next timestep - copy updatedGrid into grid
-	public void nextTimeStep(int start, int end, int [][] localUpdatedGrid) {
-		for(int i=start; i <= end; i++ ) {
-			for( int j=1; j<columns-1; j++ ) {
-				grid[i][j]=localUpdatedGrid[i][j];
+	public boolean nextTimeStep(int start, int end, int [][] localUpdatedGrid) {
+		boolean nextStep = false;
+		for(int i=start; i < end; i++ ) {
+			for( int j=1; j<=columns-1; j++ ) {
+				if (grid[i][j]!=localUpdatedGrid[i][j]) {
+					nextStep = true;
+//					System.out.println("global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
+//					System.out.println("At: " + i + " " + j);
+					grid[i][j]=localUpdatedGrid[i][j];
+//					System.out.println("After:  global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
+				}
 			}
 		}
-//		update(start, end);
+		ForkJoinPool pool = new ForkJoinPool();
+		UpdateGrid updateGrid = new UpdateGrid(this);
+    	int[][] mergedGrid = pool.invoke(updateGrid);
+    	pool.shutdown();
+    	if (nextStep) {
+    		nextTimeStep(1, getRows() + 1, mergedGrid);
+    	}
+		System.out.println("One step done");
+    	return nextStep;
 	}
 	public int convertStart(int head) {
 		int start;
@@ -133,14 +152,17 @@ public class Grid {
 
 		for( int i = start; i <= end; i++ ) {
 			for( int j = 1; j<columns-1; j++ ) {
-				System.out.println("Updating" +  i + " " + j);
+//				System.out.println("Updating" +  i + " " + j);
+				int previous = localUpdatedGrid[i][j];
 				localUpdatedGrid[i][j] = (grid[i][j] % 4) + 
 						(grid[i-1][j] / 4) +
 						grid[i+1][j] / 4 +
 						grid[i][j-1] / 4 + 
 						grid[i][j+1] / 4;
-				System.out.println("From " +  grid [i][j]+ " to " + localUpdatedGrid[i][j]);
-				if (grid[i][j]!=localUpdatedGrid[i][j]) {  
+//				System.out.println("From " +  grid [i][j]+ " to " + localUpdatedGrid[i][j]);
+				if (previous !=localUpdatedGrid[i][j]) {  
+					System.out.println("Difference: " + "global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
+					System.out.println("At: " + i + " " + j);
 					change=true;
 				}
 		}} //end nested for
