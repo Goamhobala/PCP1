@@ -90,14 +90,19 @@ class AutomatonSimulation{
 //	    		counter++;
 //	    	}
 //    	TODO Fix this
-    	int[][] mergedGrid = pool.invoke(simulationGrid);
+    	int [][] mergedGrid = pool.invoke(simulationGrid);
+    	boolean nextStep = grid.nextTimeStep(1, grid.getRows()+1, mergedGrid);
+    	while (nextStep) {
+    		simulationGrid = new UpdateGrid(grid);
+    		mergedGrid = pool.invoke(simulationGrid);
+    		nextStep = grid.nextTimeStep(1, grid.getRows()+1, mergedGrid);	
+//    		System.out.println("One step done");
+//        	System.out.println("I'm done");
+    	}
     	pool.shutdown();
-    	// To kickstart the nextTimeStep recursion
-    	grid.nextTimeStep(1, grid.getRows()+1, mergedGrid);
-    	System.out.println("I'm done");
+
 //    	mergedGrid = pool.invoke(simulationGrid);
 //    	grid.nextTimeStep(1, grid.getRows() + 1, mergedGrid);
-//    	grid.synchroniseGrid(grid.updatedGrid);
    		tock(); //end timer
    		
         System.out.println("Simulation complete, writing image...");

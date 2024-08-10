@@ -107,13 +107,13 @@ public class Grid {
 				}
 			}
 		}
-		ForkJoinPool pool = new ForkJoinPool();
-		UpdateGrid updateGrid = new UpdateGrid(this);
-    	int[][] mergedGrid = pool.invoke(updateGrid);
-    	pool.shutdown();
-    	if (nextStep) {
-    		nextTimeStep(1, getRows() + 1, mergedGrid);
-    	}
+//		ForkJoinPool pool = new ForkJoinPool();
+//		UpdateGrid updateGrid = new UpdateGrid(this);
+//    	int[][] mergedGrid = pool.invoke(updateGrid);
+//    	pool.shutdown();
+//    	if (nextStep) {
+//    		nextTimeStep(1, getRows() + 1, mergedGrid);
+//    	}
 //		System.out.println("One step done");
     	return nextStep;
 	}
