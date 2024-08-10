@@ -18,15 +18,15 @@ public class UpdateGrid extends RecursiveTask<int[][]>{
 		this.tail = tail ; 
 		this.cutoff = gridContainer.getRows() / Runtime.getRuntime().availableProcessors();
 		// plus the sink
-		this.localUpdatedGrid = new int[gridContainer.getRows() + 2][gridContainer.getColumns()+ 2];
+
 		
-//		this.cutoff = 16;
+//		this.cutoff = ;
 //		System.out.println("CUTOFF " + cutoff + "head " + head + "tail "  + tail);
 		
 	}
 	
 	public UpdateGrid(Grid gridContainer) {
-		this(gridContainer, 1, gridContainer.getRows() -1);
+		this(gridContainer, 1, gridContainer.getRows());
 	}
 	
 	public Grid getGrid() {
@@ -37,9 +37,13 @@ public class UpdateGrid extends RecursiveTask<int[][]>{
 	@Override
 	public int[][] compute() {
 		if (tail - head < cutoff) {
+			this.localUpdatedGrid = new int[gridContainer.getRows() + 2][gridContainer.getColumns()+ 2];
+			int counter = 0;
 			while(gridContainer.update(head, tail, localUpdatedGrid)) {
-				System.out.println("Updating: "+ head + " " + tail);
-				continue;
+//				System.out.println(localUpdatedGrid[13][9]);
+//				System.out.println("Updating: "+ head + " " + tail);
+				counter++;
+				System.out.println("Count: " + counter);
 			};
 //			System.out.println("next step");
 //			gridContainer.nextTimeStep(gridContainer.convertStart(head), gridContainer.convertEnd(tail), localUpdatedGrid);
@@ -54,7 +58,7 @@ public class UpdateGrid extends RecursiveTask<int[][]>{
 			int[][] updatedRight = right.compute();
 			int[][] updatedLeft = left.join();
 			for (int i = head; i <= tail; i++) {
-				for (int j = 1 ; j <= gridContainer.getColumns() - 1 ; j++) {
+				for (int j = 1 ; j <= gridContainer.getColumns() + 1 ; j++) {
 					if (i <= mid) {
 						mergedGrid[i][j] = updatedLeft[i][j];
 					}

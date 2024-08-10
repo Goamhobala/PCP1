@@ -130,7 +130,7 @@ public class Grid {
 	
 	public int convertEnd(int tail) {
 		int end;
-		if (tail != rows) {
+		if (tail != rows -1) {
 			end = tail + 1;
 		}
 		else {
@@ -146,8 +146,10 @@ public class Grid {
 //		int [][] localUpdatedGrid = new int[this.rows][this.columns];
 		boolean change=false;
 		//do not update border
-		int start = convertStart(head);
-		int end = convertEnd(tail);
+//		int start = convertStart(head);
+//		int end = convertEnd(tail);
+		int start = head;
+		int end = tail;
 
 
 		for( int i = start; i <= end; i++ ) {
@@ -161,6 +163,7 @@ public class Grid {
 						grid[i][j+1] / 4;
 //				System.out.println("From " +  grid [i][j]+ " to " + localUpdatedGrid[i][j]);
 				if (previous !=localUpdatedGrid[i][j]) {  
+					System.out.println("Previous: " + previous);
 					System.out.println("Difference: " + "global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
 					System.out.println("At: " + i + " " + j);
 					change=true;
