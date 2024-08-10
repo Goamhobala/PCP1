@@ -114,7 +114,7 @@ public class Grid {
     	if (nextStep) {
     		nextTimeStep(1, getRows() + 1, mergedGrid);
     	}
-		System.out.println("One step done");
+//		System.out.println("One step done");
     	return nextStep;
 	}
 	public int convertStart(int head) {
@@ -163,9 +163,9 @@ public class Grid {
 						grid[i][j+1] / 4;
 //				System.out.println("From " +  grid [i][j]+ " to " + localUpdatedGrid[i][j]);
 				if (previous !=localUpdatedGrid[i][j]) {  
-					System.out.println("Previous: " + previous);
-					System.out.println("Difference: " + "global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
-					System.out.println("At: " + i + " " + j);
+//					System.out.println("Previous: " + previous);
+//					System.out.println("Difference: " + "global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
+//					System.out.println("At: " + i + " " + j);
 					change=true;
 				}
 		}} //end nested for

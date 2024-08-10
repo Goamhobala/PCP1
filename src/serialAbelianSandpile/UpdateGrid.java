@@ -38,13 +38,14 @@ public class UpdateGrid extends RecursiveTask<int[][]>{
 	public int[][] compute() {
 		if (tail - head < cutoff) {
 			this.localUpdatedGrid = new int[gridContainer.getRows() + 2][gridContainer.getColumns()+ 2];
-			int counter = 0;
-			while(gridContainer.update(head, tail, localUpdatedGrid)) {
+//			int counter = 0;
+			gridContainer.update(head, tail, localUpdatedGrid);
+//			while(gridContainer.update(head, tail, localUpdatedGrid)) {
 //				System.out.println(localUpdatedGrid[13][9]);
 //				System.out.println("Updating: "+ head + " " + tail);
-				counter++;
-				System.out.println("Count: " + counter);
-			};
+//				counter++;
+//				System.out.println("Count: " + counter);
+//			};
 //			System.out.println("next step");
 //			gridContainer.nextTimeStep(gridContainer.convertStart(head), gridContainer.convertEnd(tail), localUpdatedGrid);
 			return localUpdatedGrid;

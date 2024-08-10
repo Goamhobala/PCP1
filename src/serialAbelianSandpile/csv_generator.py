@@ -1,5 +1,10 @@
 import csv
 import sys
+"""
+run like this in command line
+python csv_generator.py csv_generator "../../input/256x256.csv" 256 256 4
+to create a 256x256 grid for e.g.
+"""
 
 def csv_generator(file_path, rows, columns, value):
     """ To quickly generate csv files 
@@ -13,7 +18,7 @@ def csv_generator(file_path, rows, columns, value):
     """
     with open(file_path, mode="w") as file:
         writer = csv.writer(file, delimiter=",")
-
+        writer.writerow([rows, columns])
         for i in range(int(rows)):
             columns_list = []
             for j in range(int(columns)):
