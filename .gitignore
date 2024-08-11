@@ -1,3 +1,4 @@
 input/*
-output/*
+output/serial/*
+output/parallel/*
 analyses/*
