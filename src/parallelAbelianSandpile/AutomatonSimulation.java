@@ -83,7 +83,7 @@ class AutomatonSimulation{
     	simulationGrid = new ParalleliseGrid(new Grid(readArrayFromCSV(inputFileName)));
     	Grid grid = simulationGrid.getGrid();
     	int rows = grid.getRows();
-    	int cutoff = rows / (Runtime.getRuntime().availableProcessors() - 2);
+    	int cutoff = 4 * rows / (Runtime.getRuntime().availableProcessors() - 2);
     	ForkJoinPool pool = ForkJoinPool.commonPool();
 
     	//for debugging - hardcoded re-initialisation options

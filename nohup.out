@@ -122,3 +122,96 @@ Rows: 156, Columns: 156
 Simulation complete, writing image...
 Number of steps to stable state: 6567 
 Time: 398 ms
+Rows: 1001, Columns: 1001
+Simulation complete, writing image...
+Number of steps to stable state: 266013 
+Time: 2756125 ms
+Rows: 1001, Columns: 1001
+Simulation complete, writing image...
+Number of steps to stable state: 266013 
+Time: 3867013 ms
+Rows: 1001, Columns: 1001
+Rows: 1001, Columns: 1001
+Simulation complete, writing image...
+Number of steps to stable state: 266013 
+Time: 1668874 ms
+Rows: 517, Columns: 517
+java.io.FileNotFoundException: input517x517.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at parallelAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:44)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:83)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at parallelAbelianSandpile.Grid.<init>(Grid.java:32)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:83)
+java.io.FileNotFoundException: input517x517.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at parallelAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:44)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:83)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at parallelAbelianSandpile.Grid.<init>(Grid.java:32)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:83)
+java.io.FileNotFoundException: .input517x517.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at parallelAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:44)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:83)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at parallelAbelianSandpile.Grid.<init>(Grid.java:32)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:83)
+java.io.FileNotFoundException: input517x517.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at parallelAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:44)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:83)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at parallelAbelianSandpile.Grid.<init>(Grid.java:32)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:83)
+Rows: 128, Columns: 128
+Simulation complete, writing image...
+Number of steps to stable state: 4363 
+Time: 384 ms
+java.io.FileNotFoundException: input517x517.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at parallelAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:44)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:83)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at parallelAbelianSandpile.Grid.<init>(Grid.java:32)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:83)
+Rows: 517, Columns: 517
+Simulation complete, writing image...
+Number of steps to stable state: 98904 
+Time: 70507 ms
+Rows: 517, Columns: 517
+Simulation complete, writing image...
+Number of steps to stable state: 98904 
+Time: 78744 ms
+Rows: 517, Columns: 517
+Simulation complete, writing image...
+Number of steps to stable state: 98904 
+Time: 64074 ms
+Rows: 517, Columns: 517
+Simulation complete, writing image...
+Number of steps to stable state: 98904 
+Time: 78729 ms
+Rows: 517, Columns: 517
+Simulation complete, writing image...
+Number of steps to stable state: 98904 
+Time: 72985 ms
