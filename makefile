@@ -71,7 +71,7 @@ ARGS ?= input/128x128.csv output/128x128.png
 
 CSV_INFO ?= input/1024x1024.csv 1024 1024 4
 TEST_INFO ?= 16 156 10 4
-
+TEST_DELAY ?= 0
 # Targets
 .PHONY: all clean run directories
 
@@ -104,4 +104,4 @@ run_parallel: all
 # run: run_serial run_parallel
 
 run_test:
-	python3 $(SRC_DIR_ANALYSIS)/run_test.py run_test $(TEST_INFO)
+	python3 $(SRC_DIR_ANALYSIS)/run_test.py run_test $(TEST_INFO) $(TEST_DELAY)

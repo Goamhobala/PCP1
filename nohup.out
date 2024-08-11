@@ -215,3 +215,258 @@ Rows: 517, Columns: 517
 Simulation complete, writing image...
 Number of steps to stable state: 98904 
 Time: 72985 ms
+java.io.FileNotFoundException: input1001x1001.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at parallelAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:44)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:83)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at parallelAbelianSandpile.Grid.<init>(Grid.java:32)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:83)
+Rows: 1001, Columns: 1001
+Simulation complete, writing image...
+Number of steps to stable state: 266013 
+Time: 966603 ms
+Rows: 16, Columns: 16
+Simulation complete, writing image...
+Number of steps to stable state: 67 
+Time: 3 ms
+Rows: 16, Columns: 16
+Simulation complete, writing image...
+Number of steps to stable state: 67 
+Time: 1 ms
+Rows: 26, Columns: 26
+Simulation complete, writing image...
+Number of steps to stable state: 176 
+Time: 9 ms
+Rows: 26, Columns: 26
+Simulation complete, writing image...
+Number of steps to stable state: 176 
+Time: 6 ms
+Rows: 36, Columns: 36
+Simulation complete, writing image...
+Number of steps to stable state: 342 
+Time: 18 ms
+Rows: 36, Columns: 36
+Simulation complete, writing image...
+Number of steps to stable state: 342 
+Time: 9 ms
+Rows: 46, Columns: 46
+Simulation complete, writing image...
+Number of steps to stable state: 560 
+Time: 35 ms
+Rows: 46, Columns: 46
+Simulation complete, writing image...
+Number of steps to stable state: 560 
+Time: 17 ms
+Rows: 56, Columns: 56
+Simulation complete, writing image...
+Number of steps to stable state: 848 
+Time: 60 ms
+Rows: 56, Columns: 56
+Simulation complete, writing image...
+Number of steps to stable state: 848 
+Time: 24 ms
+Rows: 66, Columns: 66
+Simulation complete, writing image...
+Number of steps to stable state: 1156 
+Time: 80 ms
+Rows: 66, Columns: 66
+Simulation complete, writing image...
+Number of steps to stable state: 1156 
+Time: 32 ms
+Rows: 76, Columns: 76
+Simulation complete, writing image...
+Number of steps to stable state: 1576 
+Time: 98 ms
+Rows: 76, Columns: 76
+Simulation complete, writing image...
+Number of steps to stable state: 1576 
+Time: 40 ms
+Rows: 86, Columns: 86
+Simulation complete, writing image...
+Number of steps to stable state: 2000 
+Time: 120 ms
+Rows: 86, Columns: 86
+Simulation complete, writing image...
+Number of steps to stable state: 2000 
+Time: 50 ms
+Rows: 96, Columns: 96
+Simulation complete, writing image...
+Number of steps to stable state: 2458 
+Time: 152 ms
+Rows: 96, Columns: 96
+Simulation complete, writing image...
+Number of steps to stable state: 2458 
+Time: 69 ms
+Rows: 106, Columns: 106
+Simulation complete, writing image...
+Number of steps to stable state: 3025 
+Time: 192 ms
+Rows: 106, Columns: 106
+Simulation complete, writing image...
+Number of steps to stable state: 3025 
+Time: 94 ms
+Rows: 116, Columns: 116
+Simulation complete, writing image...
+Number of steps to stable state: 3619 
+Time: 249 ms
+Rows: 116, Columns: 116
+Simulation complete, writing image...
+Number of steps to stable state: 3619 
+Time: 130 ms
+Rows: 126, Columns: 126
+Simulation complete, writing image...
+Number of steps to stable state: 4242 
+Time: 312 ms
+Rows: 126, Columns: 126
+Simulation complete, writing image...
+Number of steps to stable state: 4242 
+Time: 171 ms
+Rows: 136, Columns: 136
+Simulation complete, writing image...
+Number of steps to stable state: 5003 
+Time: 412 ms
+Rows: 136, Columns: 136
+Simulation complete, writing image...
+Number of steps to stable state: 5003 
+Time: 235 ms
+Rows: 146, Columns: 146
+Simulation complete, writing image...
+Number of steps to stable state: 5736 
+Time: 471 ms
+Rows: 146, Columns: 146
+Simulation complete, writing image...
+Number of steps to stable state: 5736 
+Time: 292 ms
+Rows: 156, Columns: 156
+Simulation complete, writing image...
+Number of steps to stable state: 6567 
+Time: 604 ms
+Rows: 156, Columns: 156
+Simulation complete, writing image...
+Number of steps to stable state: 6567 
+Time: 394 ms
+Rows: 16, Columns: 16
+Simulation complete, writing image...
+Number of steps to stable state: 67 
+Time: 3 ms
+Rows: 16, Columns: 16
+Simulation complete, writing image...
+Number of steps to stable state: 67 
+Time: 2 ms
+Rows: 26, Columns: 26
+Simulation complete, writing image...
+Number of steps to stable state: 176 
+Time: 11 ms
+Rows: 26, Columns: 26
+Simulation complete, writing image...
+Number of steps to stable state: 176 
+Time: 5 ms
+Rows: 36, Columns: 36
+Simulation complete, writing image...
+Number of steps to stable state: 342 
+Time: 20 ms
+Rows: 36, Columns: 36
+Simulation complete, writing image...
+Number of steps to stable state: 342 
+Time: 9 ms
+Rows: 46, Columns: 46
+Simulation complete, writing image...
+Number of steps to stable state: 560 
+Time: 37 ms
+Rows: 46, Columns: 46
+Simulation complete, writing image...
+Number of steps to stable state: 560 
+Time: 16 ms
+Rows: 56, Columns: 56
+Simulation complete, writing image...
+Number of steps to stable state: 848 
+Time: 60 ms
+Rows: 56, Columns: 56
+Simulation complete, writing image...
+Number of steps to stable state: 848 
+Time: 25 ms
+Rows: 66, Columns: 66
+Simulation complete, writing image...
+Number of steps to stable state: 1156 
+Time: 77 ms
+Rows: 66, Columns: 66
+Simulation complete, writing image...
+Number of steps to stable state: 1156 
+Time: 32 ms
+Rows: 76, Columns: 76
+Simulation complete, writing image...
+Number of steps to stable state: 1576 
+Time: 98 ms
+Rows: 76, Columns: 76
+Simulation complete, writing image...
+Number of steps to stable state: 1576 
+Time: 40 ms
+Rows: 86, Columns: 86
+Simulation complete, writing image...
+Number of steps to stable state: 2000 
+Time: 123 ms
+Rows: 86, Columns: 86
+Simulation complete, writing image...
+Number of steps to stable state: 2000 
+Time: 50 ms
+Rows: 96, Columns: 96
+Simulation complete, writing image...
+Number of steps to stable state: 2458 
+Time: 148 ms
+Rows: 96, Columns: 96
+Simulation complete, writing image...
+Number of steps to stable state: 2458 
+Time: 73 ms
+Rows: 106, Columns: 106
+Simulation complete, writing image...
+Number of steps to stable state: 3025 
+Time: 189 ms
+Rows: 106, Columns: 106
+Simulation complete, writing image...
+Number of steps to stable state: 3025 
+Time: 96 ms
+Rows: 116, Columns: 116
+Simulation complete, writing image...
+Number of steps to stable state: 3619 
+Time: 244 ms
+Rows: 116, Columns: 116
+Simulation complete, writing image...
+Number of steps to stable state: 3619 
+Time: 129 ms
+Rows: 126, Columns: 126
+Simulation complete, writing image...
+Number of steps to stable state: 4242 
+Time: 308 ms
+Rows: 126, Columns: 126
+Simulation complete, writing image...
+Number of steps to stable state: 4242 
+Time: 171 ms
+Rows: 136, Columns: 136
+Simulation complete, writing image...
+Number of steps to stable state: 5003 
+Time: 389 ms
+Rows: 136, Columns: 136
+Simulation complete, writing image...
+Number of steps to stable state: 5003 
+Time: 262 ms
+Rows: 146, Columns: 146
+Simulation complete, writing image...
+Number of steps to stable state: 5736 
+Time: 475 ms
+Rows: 146, Columns: 146
+Simulation complete, writing image...
+Number of steps to stable state: 5736 
+Time: 291 ms
+Rows: 156, Columns: 156
+Simulation complete, writing image...
+Number of steps to stable state: 6567 
+Time: 597 ms
+Rows: 156, Columns: 156
+Simulation complete, writing image...
+Number of steps to stable state: 6567 
+Time: 394 ms
