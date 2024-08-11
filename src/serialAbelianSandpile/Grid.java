@@ -189,15 +189,24 @@ public class Grid {
 
 				switch (grid[i][j]) {
 					case 0:
-		                break;
+		                r=152;
+		                g=55;
+		                b=173;
 		            case 1:
-		            	g=255;
+		            	r=231;
+		            	g=230;
+		            	b=230;
 		                break;
 		            case 2:
-		                b=255;
-		                break;
+		            	r = 255;
+		            	g = 192;
+		            	b = 0;
+		            	break;
 		            case 3:
-		                r = 255;
+		            	r=14;
+		                b=52;
+		                g=91;
+		                
 		                break;
 		            default:
 		                break;
