@@ -2,3 +2,4 @@ input/*.csv
 output/*.png
 output/*.png
 analyses/*.csv
+nohup.out

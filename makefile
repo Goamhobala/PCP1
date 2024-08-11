@@ -71,7 +71,8 @@ ARGS ?= input/128x128.csv output/128x128.png
 
 CSV_INFO ?= input/1024x1024.csv 1024 1024 4
 TEST_INFO ?= 16 156 10 4
-TEST_DELAY ?= 0
+TIME_DELAY ?= 0
+DELAYED_COMMAND ?= run_parallel
 # Targets
 .PHONY: all clean run directories
 
@@ -89,6 +90,11 @@ $(BIN_DIR_SERIAL)/%.class: $(SRC_DIR_SERIAL)/%.java
 $(BIN_DIR_PARALLEL)/%.class: $(SRC_DIR_PARALLEL)/%.java
 	javac $(JAVAC_FLAGS) $<
 
+
+
+delay_command:
+	python3 $(SRC_DIR_ANALYSIS)/delay_run.py delay_run $(DELAYED_COMMAND) $(TIME_DELAY)
+
 clean:
 	rm -rf bin/*
 
@@ -104,4 +110,4 @@ run_parallel: all
 # run: run_serial run_parallel
 
 run_test:
-	python3 $(SRC_DIR_ANALYSIS)/run_test.py run_test $(TEST_INFO) $(TEST_DELAY)
+	python3 $(SRC_DIR_ANALYSIS)/run_test.py run_test $(TEST_INFO) $(TIME_DELAY)

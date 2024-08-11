@@ -8,7 +8,7 @@ Example: python3 $(SRC_DIR_ANALYSIS)/run_test.py run_test 16 156 10 4
 """
 
 def run_test(start, end, interval, value, delay=0):
-	time.sleep(delay)
+    time.sleep(int(delay))
     with open("./analyses/resultsSerial.csv", mode="w"):
         # to initialise the csv
         pass
