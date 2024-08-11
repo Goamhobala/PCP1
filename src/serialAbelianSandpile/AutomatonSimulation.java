@@ -1,7 +1,9 @@
 //Copyright M.M.Kuttel 2024 CSC2002S, UCT
 package serialAbelianSandpile;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.ForkJoinPool;
 /* Serial  program to simulate an Abelian Sandpile cellular automaton
@@ -24,6 +26,16 @@ class AutomatonSimulation{
 	}
 	private static void tock(){ //end timing
 		endTime=System.currentTimeMillis(); 
+	}
+	
+	public static void writeCSV(String filePath,int rows, int columns, int time, int steps) {
+		String delimiter = ",";
+		try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))){
+			writer.write(rows + delimiter + columns + delimiter + time + delimiter + steps);
+			
+		}catch (IOException e){
+			e.printStackTrace();	
+		}
 	}
 	
 	//input is via a CSV file
@@ -99,15 +111,14 @@ class AutomatonSimulation{
     		nextStep = grid.nextTimeStep(1, grid.getRows()+1, mergedGrid);	
     	}
     	pool.shutdown();
-
-
    		tock(); //end timer
-   		
+   		long duration = endTime - startTime;
         System.out.println("Simulation complete, writing image...");
     	grid.gridToImage(outputFileName); //write grid as an image - you must do this.
     	//Do NOT CHANGE below!
     	//simulation details - you must keep these lines at the end of the output in the parallel versions      	System.out.printf("\t Rows: %d, Columns: %d\n", simulationGrid.getRows(), simulationGrid.getColumns());
 		System.out.printf("Number of steps to stable state: %d \n",counter);
 		System.out.printf("Time: %d ms\n",endTime - startTime );			/*  Total computation time */		
+		writeCSV("./analyses/result.csv", grid.getRows(), grid.getColumns(), (int) duration, counter);
     }
 }

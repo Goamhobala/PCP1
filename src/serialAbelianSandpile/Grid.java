@@ -182,9 +182,9 @@ public class Grid {
 		                g=55;
 		                b=173;
 		            case 1:
-		            	r=231;
-		            	g=230;
-		            	b=230;
+		            	r=28;
+		            	g=157;
+		            	b=255;
 		                break;
 		            case 2:
 		            	r = 255;
