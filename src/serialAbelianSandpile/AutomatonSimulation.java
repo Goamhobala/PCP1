@@ -30,7 +30,7 @@ class AutomatonSimulation{
 	public static void writeCSV(String filePath, int rows, int columns, int time, int steps) {
 		String delimiter = ",";
 		try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))){
-			writer.write("parallel:"+ delimiter + rows + delimiter + columns + delimiter + time + delimiter + steps);
+			writer.write( rows + delimiter + columns + delimiter + time + delimiter + steps + "\n");
 			
 		}catch (IOException e){
 			e.printStackTrace();	
@@ -105,6 +105,6 @@ class AutomatonSimulation{
     	//simulation details - you must keep these lines at the end of the output in the parallel versions      	System.out.printf("\t Rows: %d, Columns: %d\n", simulationGrid.getRows(), simulationGrid.getColumns());
 		System.out.printf("Number of steps to stable state: %d \n",counter);
 		System.out.printf("Time: %d ms\n",duration );
-		writeCSV("./analyses/resultSerial.csv", simulationGrid.getRows(), simulationGrid.getColumns(), (int) duration, counter);/*  Total computation time */		
+		writeCSV("./analyses/resultsSerial.csv", simulationGrid.getRows(), simulationGrid.getColumns(), (int) duration, counter);/*  Total computation time */		
     }
 }

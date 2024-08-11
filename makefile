@@ -70,6 +70,7 @@ MAIN_CLASS_PARALLEL = parallelAbelianSandpile.AutomatonSimulation
 ARGS ?= input/517_by_517_centre_534578.csv output/2TEST517_by_517_all_4.png
 
 CSV_INFO ?= input/1024x1024.csv 1024 1024 4
+TEST_INFO ?= 16 156 10 4
 
 # Targets
 .PHONY: all clean run directories
@@ -100,4 +101,7 @@ run_serial: all
 run_parallel: all
 	java -classpath bin $(MAIN_CLASS_PARALLEL) $(ARGS)
 
-run: run_serial run_parallel
+# run: run_serial run_parallel
+
+run_test:
+	python3 $(SRC_DIR_ANALYSIS)/run_test.py run_test $(TEST_INFO)
