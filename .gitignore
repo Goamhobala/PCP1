@@ -1,4 +1,4 @@
-input/*
-output/serial/*
-output/parallel/*
-analyses/*
+input/*.csv
+output/*.png
+output/*.png
+analyses/*.csv
