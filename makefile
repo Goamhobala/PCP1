@@ -93,7 +93,7 @@ $(BIN_DIR_PARALLEL)/%.class: $(SRC_DIR_PARALLEL)/%.java
 
 
 delay_command:
-	python3 $(SRC_DIR_ANALYSIS)/delay_run.py delay_run $(DELAYED_COMMAND) $(TIME_DELAY)
+	python3 $(SRC_DIR_ANALYSIS)/delay_run.py delay_run $(TIME_DELAY) $(DELAYED_COMMAND)
 
 clean:
 	rm -rf bin/*
