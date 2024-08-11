@@ -84,41 +84,30 @@ public class Grid {
 			}
 	}
 	
-//	public void synchroniseGrid(int[][] newGrid) {
-//		for(int i=1; i<rows; i++ ) {
-//			for( int j=1; j<columns; j++ ) {
-//				this.grid[i][j]=newGrid[i][j];
-//			}
-//		}
-//	}
-	//for the next timestep - copy updatedGrid into grid
+
 	public boolean nextTimeStep(int start, int end, int [][] localUpdatedGrid) {
+		/*
+		 * update the grid, return 
+		 * */
 		boolean nextStep = false;
 		for(int i=start; i < end; i++ ) {
 			for( int j=1; j<=columns-1; j++ ) {
-				if (grid[i][j]!=localUpdatedGrid[i][j]) {
+				int localValue = localUpdatedGrid[i][j];
+				if (grid[i][j]!=localValue) {
 					nextStep = true;
 //					System.out.println("global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
 //					System.out.println("At: " + i + " " + j);
-					grid[i][j]=localUpdatedGrid[i][j];
+					grid[i][j]=localValue;
 //					System.out.println("After:  global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
 				}
 			}
 		}
-//		ForkJoinPool pool = new ForkJoinPool();
-//		UpdateGrid updateGrid = new UpdateGrid(this);
-//    	int[][] mergedGrid = pool.invoke(updateGrid);
-//    	pool.shutdown();
-//    	if (nextStep) {
-//    		nextTimeStep(1, getRows() + 1, mergedGrid);
-//    	}
-//		System.out.println("One step done");
     	return nextStep;
 	}
 	
 	//key method to calculate the next update grid
 	boolean update(int head, int tail, int [][] localUpdatedGrid) {
-//		int [][] localUpdatedGrid = new int[this.rows][this.columns];
+
 		boolean change=false;
 		//do not update border
 

@@ -57,7 +57,7 @@ class AutomatonSimulation{
 	 
     public static void main(String[] args) throws IOException  {
 
-    	UpdateGrid simulationGrid;  //the cellular automaton grid
+    	ParalleliseGrid simulationGrid;  //the cellular automaton grid
     	  	
     	if (args.length!=2) {   //input is the name of the input and output files
     		System.out.println("Incorrect number of command line arguments provided.");   	
@@ -68,7 +68,7 @@ class AutomatonSimulation{
 		String outputFileName=args[1]; // output file name
     
     	// Read from input .csv file
-    	simulationGrid = new UpdateGrid(new Grid(readArrayFromCSV(inputFileName)));
+    	simulationGrid = new ParalleliseGrid(new Grid(readArrayFromCSV(inputFileName)));
     	Grid grid = simulationGrid.getGrid();
     	ForkJoinPool pool = ForkJoinPool.commonPool();
 
@@ -89,20 +89,18 @@ class AutomatonSimulation{
 //	    		if(DEBUG) simulationGrid.getGrid().printGrid();
 //	    		counter++;
 //	    	}
-//    	TODO Fix this
+// While there's a change, advance to next time step
     	int [][] mergedGrid = pool.invoke(simulationGrid);
     	boolean nextStep = grid.nextTimeStep(1, grid.getRows()+1, mergedGrid);
     	while (nextStep) {
-    		simulationGrid = new UpdateGrid(grid);
+    		counter++;
+    		simulationGrid = new ParalleliseGrid(grid);
     		mergedGrid = pool.invoke(simulationGrid);
     		nextStep = grid.nextTimeStep(1, grid.getRows()+1, mergedGrid);	
-//    		System.out.println("One step done");
-//        	System.out.println("I'm done");
     	}
     	pool.shutdown();
 
-//    	mergedGrid = pool.invoke(simulationGrid);
-//    	grid.nextTimeStep(1, grid.getRows() + 1, mergedGrid);
+
    		tock(); //end timer
    		
         System.out.println("Simulation complete, writing image...");
