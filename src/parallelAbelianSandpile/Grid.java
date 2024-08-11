@@ -1,27 +1,29 @@
 //Copyright M.M.Kuttel 2024 CSC2002S, UCT
-package serialAbelianSandpile;
+package parallelAbelianSandpile;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.ForkJoinPool;
+
 import javax.imageio.ImageIO;
 
 //This class is for the grid for the Abelian Sandpile cellular automaton
 public class Grid {
 	private int rows, columns;
 	private int [][] grid; //grid 
-	private int [][] updateGrid;//grid for next time step
+	int [][] updatedGrid;//grid for next time step
     
 	public Grid(int w, int h) {
 		rows = w+2; //for the "sink" border
 		columns = h+2; //for the "sink" border
 		grid = new int[this.rows][this.columns];
-		updateGrid=new int[this.rows][this.columns];
+		updatedGrid=new int[this.rows][this.columns];
 		/* grid  initialization */
 		for(int i=0; i<this.rows; i++ ) {
 			for( int j=0; j<this.columns; j++ ) {
 				grid[i][j]=0;
-				updateGrid[i][j]=0;
+				updatedGrid[i][j]=0;
 			}
 		}
 	}
@@ -36,6 +38,21 @@ public class Grid {
 		}
 		
 	}
+	
+//	public Grid(Grid copyGrid, int head, int tail) {
+////		Create partial copy of the grid
+//		this(tail-head, copyGrid.columns - 2);
+//		System.out.println(tail);
+//		for (int i=0; i < tail - head ; i++) {
+//			for (int j=1; j < copyGrid.columns - 1 ; j++ ) {
+//				System.out.println("head:" + head + "tail" + tail);
+//				System.out.println("Cell row:" + Integer.toString(i + head) + "column:" + Integer.toString(j) + "added" );
+//				this.grid[i][j] = copyGrid.get(i, j);
+//			}
+//			
+//		}
+//	}
+	
 	public Grid(Grid copyGrid) {
 		this(copyGrid.rows,copyGrid.columns); //call constructor above
 		/* grid  initialization */
@@ -68,35 +85,57 @@ public class Grid {
 	}
 	
 
-	//for the next timestep - copy updateGrid into grid
-	public void nextTimeStep() {
-		for(int i=1; i<rows-1; i++ ) {
-			for( int j=1; j<columns-1; j++ ) {
-				this.grid[i][j]=updateGrid[i][j];
+	public boolean nextTimeStep(int start, int end, int [][] localUpdatedGrid) {
+		/*
+		 * update the grid, return 
+		 * */
+		boolean nextStep = false;
+		for(int i=start; i < end; i++ ) {
+			for( int j=1; j<=columns-1; j++ ) {
+				int localValue = localUpdatedGrid[i][j];
+				if (grid[i][j]!=localValue) {
+					nextStep = true;
+//					System.out.println("global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
+//					System.out.println("At: " + i + " " + j);
+					grid[i][j]=localValue;
+//					System.out.println("After:  global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
+				}
 			}
 		}
+    	return nextStep;
 	}
 	
-	//key method to calculate the next update grod
-	boolean update() {
+	//key method to calculate the next update grid
+	boolean update(int head, int tail, int [][] localUpdatedGrid) {
+
 		boolean change=false;
 		//do not update border
-		for( int i = 1; i<rows-1; i++ ) {
+
+
+
+		for( int i = head; i <= tail; i++ ) {
 			for( int j = 1; j<columns-1; j++ ) {
-				updateGrid[i][j] = (grid[i][j] % 4) + 
+//				System.out.println("Updating" +  i + " " + j);
+				int previous = localUpdatedGrid[i][j];
+				localUpdatedGrid[i][j] = (grid[i][j] % 4) + 
 						(grid[i-1][j] / 4) +
 						grid[i+1][j] / 4 +
 						grid[i][j-1] / 4 + 
 						grid[i][j+1] / 4;
-				if (grid[i][j]!=updateGrid[i][j]) {  
+//				System.out.println("From " +  grid [i][j]+ " to " + localUpdatedGrid[i][j]);
+				if (previous !=localUpdatedGrid[i][j]) {  
+//					System.out.println("Previous: " + previous);
+//					System.out.println("Difference: " + "global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
+//					System.out.println("At: " + i + " " + j);
 					change=true;
 				}
 		}} //end nested for
-	if (change) { nextTimeStep();}
+//	if (change) { 
+////		System.out.println("Next step");
+//		nextTimeStep(start, end, localUpdatedGrid);
+//		}
 	return change;
 	}
-	
-	
 	
 	//display the grid in text format
 	void printGrid( ) {
@@ -139,15 +178,24 @@ public class Grid {
 
 				switch (grid[i][j]) {
 					case 0:
-		                break;
+		                r=152;
+		                g=55;
+		                b=173;
 		            case 1:
-		            	g=255;
+		            	r=28;
+		            	g=157;
+		            	b=255;
 		                break;
 		            case 2:
-		                b=255;
-		                break;
+		            	r = 255;
+		            	g = 192;
+		            	b = 0;
+		            	break;
 		            case 3:
-		                r = 255;
+		            	r=14;
+		                b=52;
+		                g=91;
+		                
 		                break;
 		            default:
 		                break;

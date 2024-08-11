@@ -1,10 +1,11 @@
 //Copyright M.M.Kuttel 2024 CSC2002S, UCT
-package serialAbelianSandpile;
+package parallelAbelianSandpile;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.concurrent.ForkJoinPool;
 /* Serial  program to simulate an Abelian Sandpile cellular automaton
  * This is the reference sequential version (Do not modify this code)
  * Michelle Kuttel 2024, University of Cape Town
@@ -68,7 +69,7 @@ class AutomatonSimulation{
 	 
     public static void main(String[] args) throws IOException  {
 
-    	Grid simulationGrid;  //the cellular automaton grid
+    	ParalleliseGrid simulationGrid;  //the cellular automaton grid
     	  	
     	if (args.length!=2) {   //input is the name of the input and output files
     		System.out.println("Incorrect number of command line arguments provided.");   	
@@ -79,8 +80,10 @@ class AutomatonSimulation{
 		String outputFileName=args[1]; // output file name
     
     	// Read from input .csv file
-    	simulationGrid = new Grid(readArrayFromCSV(inputFileName));
-    	
+    	simulationGrid = new ParalleliseGrid(new Grid(readArrayFromCSV(inputFileName)));
+    	Grid grid = simulationGrid.getGrid();
+    	ForkJoinPool pool = ForkJoinPool.commonPool();
+
     	//for debugging - hardcoded re-initialisation options
     	//simulationGrid.set(rows/2,columns/2,rows*columns*2);
     	//simulationGrid.set(rows/2,columns/2,55000);
@@ -91,20 +94,31 @@ class AutomatonSimulation{
     	tick(); //start timer
     	if(DEBUG) {
     		System.out.printf("starting config: %d \n",counter);
-    		simulationGrid.printGrid();
+    		simulationGrid.getGrid().printGrid();
     	}
-		while(simulationGrid.update()) {//run until no change
-	    		if(DEBUG) simulationGrid.printGrid();
-	    		counter++;
-	    	}
+    	
+//		while(simulationGrid.compute()) {//run until no change
+//	    		if(DEBUG) simulationGrid.getGrid().printGrid();
+//	    		counter++;
+//	    	}
+// While there's a change, advance to next time step
+    	int [][] mergedGrid = pool.invoke(simulationGrid);
+    	boolean nextStep = grid.nextTimeStep(1, grid.getRows()+1, mergedGrid);
+    	while (nextStep) {
+    		counter++;
+    		simulationGrid = new ParalleliseGrid(grid);
+    		mergedGrid = pool.invoke(simulationGrid);
+    		nextStep = grid.nextTimeStep(1, grid.getRows()+1, mergedGrid);	
+    	}
+    	pool.shutdown();
    		tock(); //end timer
    		long duration = endTime - startTime;
         System.out.println("Simulation complete, writing image...");
-    	simulationGrid.gridToImage(outputFileName); //write grid as an image - you must do this.
+    	grid.gridToImage(outputFileName); //write grid as an image - you must do this.
     	//Do NOT CHANGE below!
     	//simulation details - you must keep these lines at the end of the output in the parallel versions      	System.out.printf("\t Rows: %d, Columns: %d\n", simulationGrid.getRows(), simulationGrid.getColumns());
 		System.out.printf("Number of steps to stable state: %d \n",counter);
-		System.out.printf("Time: %d ms\n",duration );
-		writeCSV("./analyses/resultSerial.csv", simulationGrid.getRows(), simulationGrid.getColumns(), (int) duration, counter);/*  Total computation time */		
+		System.out.printf("Time: %d ms\n",endTime - startTime );			/*  Total computation time */		
+		writeCSV("./analyses/resultParallel.csv", grid.getRows(), grid.getColumns(), (int) duration, counter);
     }
 }

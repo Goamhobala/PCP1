@@ -1,4 +1,4 @@
-package serialAbelianSandpile;
+package parallelAbelianSandpile;
 import java.util.concurrent.RecursiveTask;
 import java.lang.Runtime;
 
