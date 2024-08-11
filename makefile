@@ -67,7 +67,7 @@ MAIN_CLASS_SERIAL = serialAbelianSandpile.AutomatonSimulation
 MAIN_CLASS_PARALLEL = parallelAbelianSandpile.AutomatonSimulation
 
 # Default arguments (update these if needed)
-ARGS ?= input/517_by_517_centre_534578.csv output/2TEST517_by_517_all_4.png
+ARGS ?= input/128x128.csv output/128x128.png
 
 CSV_INFO ?= input/1024x1024.csv 1024 1024 4
 TEST_INFO ?= 16 156 10 4
@@ -96,10 +96,10 @@ csv:
 	python3 $(SRC_DIR_ANALYSIS)/csv_generator.py csv_generator $(CSV_INFO)
 
 run_serial: all
-	java -classpath bin $(MAIN_CLASS_SERIAL) $(ARGS)
+	nohup java -classpath bin $(MAIN_CLASS_SERIAL) $(ARGS)
 
 run_parallel: all
-	java -classpath bin $(MAIN_CLASS_PARALLEL) $(ARGS)
+	nohup java -classpath bin $(MAIN_CLASS_PARALLEL) $(ARGS)
 
 # run: run_serial run_parallel
 

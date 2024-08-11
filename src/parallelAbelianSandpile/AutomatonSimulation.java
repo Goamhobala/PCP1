@@ -82,6 +82,8 @@ class AutomatonSimulation{
     	// Read from input .csv file
     	simulationGrid = new ParalleliseGrid(new Grid(readArrayFromCSV(inputFileName)));
     	Grid grid = simulationGrid.getGrid();
+    	int rows = grid.getRows();
+    	int cutoff = rows / (Runtime.getRuntime().availableProcessors() - 2);
     	ForkJoinPool pool = ForkJoinPool.commonPool();
 
     	//for debugging - hardcoded re-initialisation options
@@ -103,12 +105,12 @@ class AutomatonSimulation{
 //	    	}
 // While there's a change, advance to next time step
     	int [][] mergedGrid = pool.invoke(simulationGrid);
-    	boolean nextStep = grid.nextTimeStep(1, grid.getRows()+1, mergedGrid);
+    	boolean nextStep = grid.nextTimeStep(1, rows+1, mergedGrid);
     	while (nextStep) {
     		counter++;
-    		simulationGrid = new ParalleliseGrid(grid);
+    		simulationGrid = new ParalleliseGrid(grid, 1, rows, cutoff);
     		mergedGrid = pool.invoke(simulationGrid);
-    		nextStep = grid.nextTimeStep(1, grid.getRows()+1, mergedGrid);	
+    		nextStep = grid.nextTimeStep(1, rows+1, mergedGrid);	
     	}
     	pool.shutdown();
    		tock(); //end timer
@@ -119,6 +121,6 @@ class AutomatonSimulation{
     	//simulation details - you must keep these lines at the end of the output in the parallel versions      	System.out.printf("\t Rows: %d, Columns: %d\n", simulationGrid.getRows(), simulationGrid.getColumns());
 		System.out.printf("Number of steps to stable state: %d \n",counter);
 		System.out.printf("Time: %d ms\n",endTime - startTime );			/*  Total computation time */		
-		writeCSV("./analyses/resultsParallel.csv", grid.getRows(), grid.getColumns(), (int) duration, counter);
+		writeCSV("./analyses/resultsParallel.csv", rows, grid.getColumns(), (int) duration, counter);
     }
 }

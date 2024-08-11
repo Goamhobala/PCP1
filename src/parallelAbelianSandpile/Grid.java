@@ -106,9 +106,8 @@ public class Grid {
 	}
 	
 	//key method to calculate the next update grid
-	boolean update(int head, int tail, int [][] localUpdatedGrid) {
+	void update(int head, int tail, int [][] localUpdatedGrid) {
 
-		boolean change=false;
 		//do not update border
 
 
@@ -116,25 +115,25 @@ public class Grid {
 		for( int i = head; i <= tail; i++ ) {
 			for( int j = 1; j<columns-1; j++ ) {
 //				System.out.println("Updating" +  i + " " + j);
-				int previous = localUpdatedGrid[i][j];
+//				int previous = localUpdatedGrid[i][j];
 				localUpdatedGrid[i][j] = (grid[i][j] % 4) + 
 						(grid[i-1][j] / 4) +
 						grid[i+1][j] / 4 +
 						grid[i][j-1] / 4 + 
 						grid[i][j+1] / 4;
 //				System.out.println("From " +  grid [i][j]+ " to " + localUpdatedGrid[i][j]);
-				if (previous !=localUpdatedGrid[i][j]) {  
-//					System.out.println("Previous: " + previous);
-//					System.out.println("Difference: " + "global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
-//					System.out.println("At: " + i + " " + j);
-					change=true;
-				}
+//				if (previous !=localUpdatedGrid[i][j]) {  
+////					System.out.println("Previous: " + previous);
+////					System.out.println("Difference: " + "global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
+////					System.out.println("At: " + i + " " + j);
+//					change=true;
+//				}
 		}} //end nested for
 //	if (change) { 
 ////		System.out.println("Next step");
 //		nextTimeStep(start, end, localUpdatedGrid);
 //		}
-	return change;
+//	return change;
 	}
 	
 	//display the grid in text format

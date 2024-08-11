@@ -18,7 +18,7 @@ public class ParalleliseGrid extends RecursiveTask<int[][]>{
 	}
 	
 	public ParalleliseGrid(Grid gridContainer) {
-		this(gridContainer, 1, gridContainer.getRows(), gridContainer.getRows() / Runtime.getRuntime().availableProcessors());
+		this(gridContainer, 1, gridContainer.getRows(), gridContainer.getRows() / (Runtime.getRuntime().availableProcessors() - 1));
 	}
 	
 	public Grid getGrid() {
