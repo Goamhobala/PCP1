@@ -9,11 +9,11 @@ Example: python3 $(SRC_DIR_ANALYSIS)/run_test.py run_test 16 156 10 4
 
 def run_test(start, end, interval, value, delay=0):
     time.sleep(int(delay))
-    with open("./analyses/resultsSerial.csv", mode="w"):
-        # to initialise the csv
-        pass
-    with open("./analyses/resultsParallel.csv", mode="w"):
-        pass
+    # with open("./analyses/resultsSerial.csv", mode="w"):
+    #     # to initialise the csv
+    #     pass
+    # with open("./analyses/resultsParallel.csv", mode="w"):
+        # pass
     number_runs = (int(end) - int(start)) // int(interval)
     for i in range(number_runs + 1):
         dimension = int(start) + int(interval) * i

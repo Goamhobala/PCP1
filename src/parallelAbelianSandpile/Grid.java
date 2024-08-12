@@ -12,18 +12,15 @@ import javax.imageio.ImageIO;
 public class Grid {
 	private int rows, columns;
 	private int [][] grid; //grid 
-	int [][] updatedGrid;//grid for next time step
     
 	public Grid(int w, int h) {
 		rows = w+2; //for the "sink" border
 		columns = h+2; //for the "sink" border
 		grid = new int[this.rows][this.columns];
-		updatedGrid=new int[this.rows][this.columns];
 		/* grid  initialization */
 		for(int i=0; i<this.rows; i++ ) {
 			for( int j=0; j<this.columns; j++ ) {
 				grid[i][j]=0;
-				updatedGrid[i][j]=0;
 			}
 		}
 	}
