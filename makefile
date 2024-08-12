@@ -26,7 +26,7 @@ MAIN_CLASS_PARALLEL = parallelAbelianSandpile.AutomatonSimulation
 # Default arguments (update these if needed)
 RUN_ARGS ?= input/128x128.csv output/128x128.png
 VALIDATE_ARGS ?= output/parallel/128x128.csv output/serial/128x128.csv output/comparisons/128x128.txt
-CSV_INFO ?= input/1024x1024.csv 1024 1024 4
+CSV_INFO ?= 1024 1024 4
 TEST_INFO ?= 16 156 10 4
 TIME_DELAY ?= 0
 DELAYED_COMMAND ?= run_parallel

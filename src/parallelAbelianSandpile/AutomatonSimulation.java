@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.ForkJoinPool;
+import java.lang.Math;
 /* Serial  program to simulate an Abelian Sandpile cellular automaton
  * This is the reference sequential version (Do not modify this code)
  * Michelle Kuttel 2024, University of Cape Town
@@ -85,7 +86,7 @@ class AutomatonSimulation{
     	Grid grid = simulationGrid.getGrid();
     	int rows = grid.getRows();
     	// This formula effectively increases cutoff for smaller grid
-    	int cutoff =  (rows * (1 + 500/rows)) / (Runtime.getRuntime().availableProcessors() - 1);
+    	int cutoff =  (int) Math.round(rows * (1 + 500.0/rows) / (Runtime.getRuntime().availableProcessors() - 1));
     	ForkJoinPool pool = ForkJoinPool.commonPool();
 
     	//for debugging - hardcoded re-initialisation options

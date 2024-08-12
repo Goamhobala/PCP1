@@ -84,14 +84,14 @@ public class Grid {
 	}
 	
 
-	public boolean nextTimeStep(int start, int end, int [][] localUpdatedGrid) {
+	public boolean nextTimeStep(int start, int end, int [][] updatedGrid) {
 		/*
-		 * update the grid, return 
+		 * copying the values in the updatedGrid into the grid
 		 * */
 		boolean nextStep = false;
 		for(int i=start; i < end; i++ ) {
 			for( int j=1; j<=columns-1; j++ ) {
-				int localValue = localUpdatedGrid[i][j];
+				int localValue = updatedGrid[i][j];
 				if (grid[i][j]!=localValue) {
 					nextStep = true;
 //					System.out.println("global: " + grid[i][j] + " local: " + localUpdatedGrid[i][j]);
@@ -106,10 +106,9 @@ public class Grid {
 	
 	//key method to calculate the next update grid
 	void update(int head, int tail, int [][] localUpdatedGrid) {
-
-		//do not update border
-
-
+		/*
+		 * To save the updated value of the grid into a local copy of the grid
+		 * */
 
 		for( int i = head; i <= tail; i++ ) {
 			for( int j = 1; j<columns-1; j++ ) {

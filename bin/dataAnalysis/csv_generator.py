@@ -6,7 +6,7 @@ python csv_generator.py csv_generator "../../input/256x256.csv" 256 256 4
 to create a 256x256 grid for e.g.
 """
 
-def csv_generator(file_path, rows, columns, value):
+def csv_generator(rows, columns, value):
     """ To quickly generate csv files 
     with each cell filled by the same value
 
@@ -16,7 +16,7 @@ def csv_generator(file_path, rows, columns, value):
         columns (int): _description_
         values (any): value to fill each cell with
     """
-    with open(file_path, mode="w") as file:
+    with open(f"./input/{rows}x{columns}_{value}.csv", mode="w") as file:
         writer = csv.writer(file, delimiter=",")
         writer.writerow([rows, columns])
         for i in range(int(rows)):

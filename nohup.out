@@ -964,3 +964,165 @@ Rows: 500, Columns: 500
 Simulation complete, writing image...
 Number of steps to stable state: 111747 
 Time: 143408 ms
+Rows: 500, Columns: 500
+Simulation complete, writing image...
+Number of steps to stable state: 66179 
+Time: 60643 ms
+Rows: 500, Columns: 500
+Simulation complete, writing image...
+Number of steps to stable state: 66179 
+Time: 78062 ms
+Rows: 502, Columns: 502
+Simulation complete, writing image...
+Number of steps to stable state: 68520 
+Time: 94008 ms
+Rows: 502, Columns: 502
+Simulation complete, writing image...
+Number of steps to stable state: 68520 
+Time: 81236 ms
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token ")", delete this token
+
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:89)
+Rows: 500, Columns: 500
+Simulation complete, writing image...
+Number of steps to stable state: 66179 
+Time: 77720 ms
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token ")", delete this token
+
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:89)
+Rows: 502, Columns: 502
+Simulation complete, writing image...
+Number of steps to stable state: 68520 
+Time: 80598 ms
+Rows: 500, Columns: 500
+Simulation complete, writing image...
+Number of steps to stable state: 66179 
+Time: 63172 ms
+Rows: 500, Columns: 500
+Simulation complete, writing image...
+Number of steps to stable state: 66179 
+Time: 77836 ms
+Rows: 502, Columns: 502
+Simulation complete, writing image...
+Number of steps to stable state: 68520 
+Time: 63972 ms
+Rows: 502, Columns: 502
+Simulation complete, writing image...
+Number of steps to stable state: 68520 
+Time: 80682 ms
+java.io.FileNotFoundException: ./input/16x16_5.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at parallelAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:46)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:85)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at parallelAbelianSandpile.Grid.<init>(Grid.java:31)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:85)
+java.io.FileNotFoundException: ./input/16x16_5.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at serialAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:43)
+	at serialAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:82)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at serialAbelianSandpile.Grid.<init>(Grid.java:32)
+	at serialAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:82)
+java.io.FileNotFoundException: ./input/16x16_5.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at parallelAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:46)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:85)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at parallelAbelianSandpile.Grid.<init>(Grid.java:31)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:85)
+java.io.FileNotFoundException: ./input/16x16_5.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at serialAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:43)
+	at serialAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:82)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at serialAbelianSandpile.Grid.<init>(Grid.java:32)
+	at serialAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:82)
+java.io.FileNotFoundException: ./input/16x16_5.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at parallelAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:46)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:85)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at parallelAbelianSandpile.Grid.<init>(Grid.java:31)
+	at parallelAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:85)
+java.io.FileNotFoundException: ./input/16x16_5.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at serialAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:43)
+	at serialAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:82)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at serialAbelianSandpile.Grid.<init>(Grid.java:32)
+	at serialAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:82)
+Rows: 16, Columns: 16
+Simulation complete, writing image...
+Number of steps to stable state: 106 
+Time: 6 ms
+Rows: 16, Columns: 16
+Simulation complete, writing image...
+Number of steps to stable state: 106 
+Time: 3 ms
+Rows: 32, Columns: 32
+Simulation complete, writing image...
+Number of steps to stable state: 424 
+Time: 30 ms
+Rows: 32, Columns: 32
+Simulation complete, writing image...
+Number of steps to stable state: 424 
+Time: 13 ms
+Rows: 48, Columns: 48
+Simulation complete, writing image...
+Number of steps to stable state: 921 
+Time: 46 ms
+Rows: 48, Columns: 48
+Simulation complete, writing image...
+Number of steps to stable state: 921 
+Time: 41 ms
+Rows: 64, Columns: 64
+Simulation complete, writing image...
+Number of steps to stable state: 1658 
+Time: 76 ms
+Rows: 64, Columns: 64
+Simulation complete, writing image...
+Number of steps to stable state: 1658 
+Time: 57 ms
+Rows: 80, Columns: 80
+Simulation complete, writing image...
+Number of steps to stable state: 2303 
+Time: 119 ms
+Rows: 80, Columns: 80
+Simulation complete, writing image...
+Number of steps to stable state: 2303 
+Time: 84 ms
+Rows: 96, Columns: 96
+Simulation complete, writing image...
+Number of steps to stable state: 3426 
+Time: 291 ms
+Rows: 96, Columns: 96
+Simulation complete, writing image...
+Number of steps to stable state: 3426 
+Time: 144 ms
