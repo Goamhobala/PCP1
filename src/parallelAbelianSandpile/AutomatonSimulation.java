@@ -28,6 +28,7 @@ class AutomatonSimulation{
 		endTime=System.currentTimeMillis(); 
 	}
 	
+
 	public static void writeCSV(String filePath, int rows, int columns, int time, int steps) {
 		String delimiter = ",";
 		try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))){
@@ -83,7 +84,8 @@ class AutomatonSimulation{
     	simulationGrid = new ParalleliseGrid(new Grid(readArrayFromCSV(inputFileName)));
     	Grid grid = simulationGrid.getGrid();
     	int rows = grid.getRows();
-    	int cutoff =  4 * rows / (Runtime.getRuntime().availableProcessors() - 2);
+    	// This formula effectively increases cutoff for smaller grid
+    	int cutoff =  (rows * (1 + 500/rows)) / (Runtime.getRuntime().availableProcessors() - 1);
     	ForkJoinPool pool = ForkJoinPool.commonPool();
 
     	//for debugging - hardcoded re-initialisation options
@@ -122,5 +124,6 @@ class AutomatonSimulation{
 		System.out.printf("Number of steps to stable state: %d \n",counter);
 		System.out.printf("Time: %d ms\n",endTime - startTime );			/*  Total computation time */		
 		writeCSV("./analyses/resultsParallel.csv", rows, grid.getColumns(), (int) duration, counter);
+		grid.gridToCSV(String.format("./output/parallel/%dx%d.csv", rows, grid.getColumns()));
     }
 }

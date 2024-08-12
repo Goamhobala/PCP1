@@ -2,7 +2,9 @@
 package parallelAbelianSandpile;
 
 import java.awt.image.BufferedImage;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.ForkJoinPool;
 
@@ -154,6 +156,21 @@ public class Grid {
 		System.out.printf("+");
 		for( j=1; j<columns-1; j++ ) System.out.printf("  --");
 		System.out.printf("+\n\n");
+	}
+	
+	void gridToCSV(String path) {
+		
+		try(BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
+			writer.write("New grid," + getRows() + "," + getColumns() + "\n");
+		for( int i=1; i<rows-1; i++ ) {
+			for( int j=1; j<columns-1; j++ ) {
+				writer.write(grid[i][j] + ",");
+				}
+			writer.write("\n");
+			}
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	//write grid out as an image

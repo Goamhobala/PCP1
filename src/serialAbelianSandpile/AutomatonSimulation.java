@@ -105,6 +105,7 @@ class AutomatonSimulation{
     	//simulation details - you must keep these lines at the end of the output in the parallel versions      	System.out.printf("\t Rows: %d, Columns: %d\n", simulationGrid.getRows(), simulationGrid.getColumns());
 		System.out.printf("Number of steps to stable state: %d \n",counter);
 		System.out.printf("Time: %d ms\n",duration );
-		writeCSV("./analyses/resultsSerial.csv", simulationGrid.getRows(), simulationGrid.getColumns(), (int) duration, counter);/*  Total computation time */		
+		writeCSV("./analyses/resultsSerial.csv", simulationGrid.getRows(), simulationGrid.getColumns(), (int) duration, counter);
+		simulationGrid.gridToCSV(String.format("./output/serial/%dx%d.csv", simulationGrid.getRows(), simulationGrid.getColumns()));/*  Total computation time */		
     }
 }
