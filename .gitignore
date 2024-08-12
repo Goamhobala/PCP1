@@ -1,5 +1,7 @@
 input/*.csv
 output/*.png
-output/*.png
-analyses/*.csv
+output/parallel/*.png
+output/serial/*.png
+analyses/
 nohup.out
+bin/
