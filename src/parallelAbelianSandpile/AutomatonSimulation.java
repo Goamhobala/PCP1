@@ -86,7 +86,7 @@ class AutomatonSimulation{
     	Grid grid = simulationGrid.getGrid();
     	int rows = grid.getRows();
     	// This formula effectively increases cutoff for smaller grid
-    	int cutoff =  (int) Math.round(rows * (1 + 500.0/rows) / (Runtime.getRuntime().availableProcessors() - 1));
+    	int cutoff =  2400 / (Runtime.getRuntime().availableProcessors());
     	ForkJoinPool pool = ForkJoinPool.commonPool();
 
     	//for debugging - hardcoded re-initialisation options
@@ -111,7 +111,8 @@ class AutomatonSimulation{
     	boolean nextStep = grid.nextTimeStep(1, rows+1, mergedGrid);
     	while (nextStep) {
     		counter++;
-    		simulationGrid = new ParalleliseGrid(grid, 1, rows, cutoff);
+//    		simulationGrid = new ParalleliseGrid(grid, 1, rows, cutoff);
+    		simulationGrid.reinitialize();
     		mergedGrid = pool.invoke(simulationGrid);
     		nextStep = grid.nextTimeStep(1, rows+1, mergedGrid);	
     	}
