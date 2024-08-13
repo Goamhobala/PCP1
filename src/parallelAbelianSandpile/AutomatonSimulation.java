@@ -82,11 +82,12 @@ class AutomatonSimulation{
 		String outputFileName=args[1]; // output file name
     
     	// Read from input .csv file
-    	simulationGrid = new ParalleliseGrid(new Grid(readArrayFromCSV(inputFileName)));
+		int cutoff =  2400 / (Runtime.getRuntime().availableProcessors());
+    	simulationGrid = new ParalleliseGrid(new Grid(readArrayFromCSV(inputFileName)),cutoff);
     	Grid grid = simulationGrid.getGrid();
     	int rows = grid.getRows();
     	// This formula effectively increases cutoff for smaller grid
-    	int cutoff =  2400 / (Runtime.getRuntime().availableProcessors());
+//    	int cutoff =  2400 / (Runtime.getRuntime().availableProcessors());
     	ForkJoinPool pool = ForkJoinPool.commonPool();
 
     	//for debugging - hardcoded re-initialisation options

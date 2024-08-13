@@ -8,6 +8,8 @@ public class ParalleliseGrid extends RecursiveTask<int[][]>{
 	private int tail;
 	private int cutoff;
 	private int [][] localUpdatedGrid;
+	private static int processors = (Runtime.getRuntime().availableProcessors());
+
 	
 	public ParalleliseGrid(Grid gridContainer, int head, int tail, int cutoff) {
 		this.gridContainer = gridContainer;
@@ -17,8 +19,8 @@ public class ParalleliseGrid extends RecursiveTask<int[][]>{
 		
 	}
 	
-	public ParalleliseGrid(Grid gridContainer) {
-		this(gridContainer, 1, gridContainer.getRows(), gridContainer.getRows() / (Runtime.getRuntime().availableProcessors() - 1));
+	public ParalleliseGrid(Grid gridContainer, int cutoff) {
+		this(gridContainer, 1, gridContainer.getRows(), cutoff);
 	}
 	
 	public Grid getGrid() {
