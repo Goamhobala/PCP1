@@ -1,0 +1,107 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Speedup Graphs},
+  pdfauthor={Jing Yeh},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Speedup Graphs}
+\author{Jing Yeh}
+\date{2024-08-14}
+
+\begin{document}
+\maketitle
+
+\subsubsection{2.1 Speedup Graphs}\label{speedup-graphs}
+
+\paragraph{Summary}\label{summary}
+
+\begin{verbatim}
+##       size            serial            parallel           speedup      
+##  Min.   : 100.0   Min.   :      68   Min.   :     186   Min.   :0.2259  
+##  1st Qu.: 300.0   1st Qu.:    6512   1st Qu.:    8572   1st Qu.:0.8237  
+##  Median : 500.0   Median :  143485   Median :  111001   Median :1.2290  
+##  Mean   : 542.4   Mean   : 1320107   Mean   :  923718   Mean   :1.1229  
+##  3rd Qu.: 800.0   3rd Qu.:  490888   3rd Qu.:  350587   3rd Qu.:1.3224  
+##  Max.   :1000.0   Max.   :23946100   Max.   :16875907   Max.   :2.0408  
+##       step       
+##  Min.   :  2721  
+##  1st Qu.: 23824  
+##  Median : 66179  
+##  Mean   : 99738  
+##  3rd Qu.:169355  
+##  Max.   :265189
+\end{verbatim}
+
+\paragraph{Box Plot of Speedup by Size on 8-core
+Macboo}\label{box-plot-of-speedup-by-size-on-8-core-macboo}
+
+\includegraphics{SpeedupGraphs_files/figure-latex/speedUp-1.pdf}
+\#\#\#\# Scattered Plot of Speedup by Steps on 8-core Macbook
+\includegraphics{SpeedupGraphs_files/figure-latex/mac-1.pdf} \newpage
+
+\begin{verbatim}
+\end{verbatim}
+
+\end{document}

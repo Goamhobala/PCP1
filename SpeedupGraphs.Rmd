@@ -1,0 +1,44 @@
+---
+title: "Speedup Graphs"
+author: "Jing Yeh"
+date: "2024-08-14"
+output: pdf_document
+---
+### 2.1 Speedup Graphs
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(scales)
+library(kable)
+mac <- read.csv("analyses/mac2.csv")
+```
+#### Summary
+```{r summary, echo=FALSE}
+summary(mac)
+```
+
+#### Box Plot of Speedup by Size on 8-core Macboo
+```{r speedUp, echo=FALSE}
+ggplot(mac,  aes(x=factor(size), y=speedup)) +
+  geom_boxplot(color="blue", fill="orange", size=0.32)+
+  labs(title="Box Plot of Speedup by Size on 8-core Macbook", x="Size", y="Speedup")+
+  theme_minimal()
+```
+#### Scattered Plot of Speedup by Steps on 8-core Macbook
+```{r mac, echo=FALSE}
+ggplot(mac,  aes(x=step, y=speedup)) +
+  geom_point(color="coral", size=1.8)+
+  labs(title="Scattered Plot of Speedup by Steps on 8-core Macbook", x="Steps", y="Speedup")+
+  theme_minimal()+
+  scale_x_continuous(breaks=seq(2000, 280000, 20000),
+                     labels = label_number(scale = 1e-3, suffix = "k")) # Convert to 'k' format)
+
+```
+```{r kable, echo=FALSE}
+knitr::kable(mac, format="pipe")
+```
+\newpage
+```
+```
+
+

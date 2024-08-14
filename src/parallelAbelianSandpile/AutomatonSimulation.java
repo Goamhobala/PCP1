@@ -1,4 +1,5 @@
 //Copyright M.M.Kuttel 2024 CSC2002S, UCT
+// Adapted by Jing Yeh
 package parallelAbelianSandpile;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,12 +7,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.ForkJoinPool;
-import java.lang.Math;
-/* Serial  program to simulate an Abelian Sandpile cellular automaton
- * This is the reference sequential version (Do not modify this code)
- * Michelle Kuttel 2024, University of Cape Town
- * Adapted from "Abelian Sandpile Simulation"
- * Peachy Parallel Assignments (EduPar 2022)" 
+/* Parallel  program to simulate an Abelian Sandpile cellular automaton
+ * Further adapeted by Jing Yeh YHXJIN001
+ * Adapted from "Abelian Sandpile Simulation" by Michelle Kuttel 2024, University of Cape Town
+ * Peachy Parallel Assignments (EduPar 2022)"  
  * developed by Bu\:cker, Casanova and Da Silva  (∗Institute for Computer Science, Friedrich Schiller University Jena, Jena, Germany)
  */
 
@@ -30,6 +29,25 @@ class AutomatonSimulation{
 	}
 	
 
+/**
+ * The writeCSV function writes data to a CSV file with the specified number of rows, columns, time,
+ * and steps.
+ * 
+ * @param filePath The `filePath` parameter is the path to the CSV file where you want to write the
+ * data. It should include the file name and extension (e.g., "data.csv").
+ * @param rows The `rows` parameter in the `writeCSV` method represents the number of rows in the CSV
+ * file that will be written. It indicates how many rows of data will be included in the file.
+ * @param columns The `columns` parameter in the `writeCSV` method represents the number of columns in
+ * the CSV file that will be written. It specifies the horizontal arrangement of data in each row of
+ * the CSV file.
+ * @param time The `time` parameter in the `writeCSV` method represents the time taken for a specific
+ * operation or process. It is typically measured in milliseconds or seconds, depending on the context
+ * of the operation being performed. This value is written to the CSV file along with other information
+ * such as the number of rows
+ * @param steps The `steps` parameter in the `writeCSV` method represents the number of steps taken in
+ * a process or algorithm. It is being written to a CSV file along with other information such as the
+ * number of rows, columns, and the time taken.
+ */
 	public static void writeCSV(String filePath, int rows, int columns, int time, int steps) {
 		String delimiter = ",";
 		try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))){
@@ -41,6 +59,14 @@ class AutomatonSimulation{
 	}
 	
 	//input is via a CSV file
+/**
+ * The function `readArrayFromCSV` reads a 2D array of integers from a CSV file specified by the
+ * filePath parameter.
+ * 
+ * @param filePath The path to the file
+ * @return The method `readArrayFromCSV` is returning a 2D integer array that is read from a CSV file
+ * specified by the `filePath` parameter.
+ */
 	 public static int [][] readArrayFromCSV(String filePath) {
 		 int [][] array = null;
 	        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -81,13 +107,14 @@ class AutomatonSimulation{
   		String inputFileName = args[0];  //input file name
 		String outputFileName=args[1]; // output file name
     
-    	// Read from input .csv file
-		int cutoff =  2400 / (Runtime.getRuntime().availableProcessors());
+ 
+    	// This formula effectively increases cutoff for smaller grid
+		int cutoff =  2400/ (Runtime.getRuntime().availableProcessors());
+	   	// Read from input .csv file
     	simulationGrid = new ParalleliseGrid(new Grid(readArrayFromCSV(inputFileName)),cutoff);
     	Grid grid = simulationGrid.getGrid();
     	int rows = grid.getRows();
-    	// This formula effectively increases cutoff for smaller grid
-//    	int cutoff =  2400 / (Runtime.getRuntime().availableProcessors());
+
     	ForkJoinPool pool = ForkJoinPool.commonPool();
 
     	//for debugging - hardcoded re-initialisation options
@@ -103,16 +130,12 @@ class AutomatonSimulation{
     		simulationGrid.getGrid().printGrid();
     	}
     	
-//		while(simulationGrid.compute()) {//run until no change
-//	    		if(DEBUG) simulationGrid.getGrid().printGrid();
-//	    		counter++;
-//	    	}
-// While there's a change, advance to next time step
+
     	int [][] mergedGrid = pool.invoke(simulationGrid);
     	boolean nextStep = grid.nextTimeStep(1, rows+1, mergedGrid);
+		// While there's a change, advance to next time step
     	while (nextStep) {
     		counter++;
-//    		simulationGrid = new ParalleliseGrid(grid, 1, rows, cutoff);
     		simulationGrid.reinitialize();
     		mergedGrid = pool.invoke(simulationGrid);
     		nextStep = grid.nextTimeStep(1, rows+1, mergedGrid);	
@@ -123,7 +146,7 @@ class AutomatonSimulation{
         System.out.println("Simulation complete, writing image...");
     	grid.gridToImage(outputFileName); //write grid as an image - you must do this.
     	//Do NOT CHANGE below!
-    	//simulation details - you must keep these lines at the end of the output in the parallel versions      	System.out.printf("\t Rows: %d, Columns: %d\n", simulationGrid.getRows(), simulationGrid.getColumns());
+    	System.out.printf("\t Rows: %d, Columns: %d\n", grid.getRows(), grid.getColumns());
 		System.out.printf("Number of steps to stable state: %d \n",counter);
 		System.out.printf("Time: %d ms\n",endTime - startTime );			/*  Total computation time */		
 		writeCSV("./analyses/resultsParallel.csv", rows, grid.getColumns(), (int) duration, counter);

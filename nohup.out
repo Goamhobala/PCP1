@@ -1212,3 +1212,129 @@ Rows: 130, Columns: 130
 Simulation complete, writing image...
 Number of steps to stable state: 104148 
 Time: 59385 ms
+Rows: 500, Columns: 500
+Simulation complete, writing image...
+Number of steps to stable state: 161400 
+Time: 143485 ms
+Rows: 600, Columns: 600
+Simulation complete, writing image...
+Number of steps to stable state: 226048 
+Time: 285615 ms
+Rows: 700, Columns: 700
+Simulation complete, writing image...
+Number of steps to stable state: 320267 
+Time: 4706162 ms
+Rows: 800, Columns: 800
+Simulation complete, writing image...
+Number of steps to stable state: 402810 
+Time: 1793671 ms
+Rows: 700, Columns: 700
+Simulation complete, writing image...
+Number of steps to stable state: 130103 
+Time: 185059 ms
+Rows: 800, Columns: 800
+Simulation complete, writing image...
+Number of steps to stable state: 169355 
+Time: 311745 ms
+Rows: 900, Columns: 900
+Simulation complete, writing image...
+Number of steps to stable state: 219101 
+Time: 2394610 ms
+Rows: 1000, Columns: 1000
+Simulation complete, writing image...
+Number of steps to stable state: 265189 
+Time: 2214751 ms
+java.io.FileNotFoundException: input/400x400.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at serialAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:43)
+	at serialAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:82)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at serialAbelianSandpile.Grid.<init>(Grid.java:32)
+	at serialAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:82)
+java.io.FileNotFoundException: input/400x400_4.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at serialAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:43)
+	at serialAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:82)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at serialAbelianSandpile.Grid.<init>(Grid.java:32)
+	at serialAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:82)
+Rows: 400, Columns: 400
+Simulation complete, writing image...
+Number of steps to stable state: 42570 
+Time: 32295 ms
+java.io.FileNotFoundException: input/500x500_4.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:158)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at serialAbelianSandpile.AutomatonSimulation.readArrayFromCSV(AutomatonSimulation.java:43)
+	at serialAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:82)
+Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "newGrid" is null
+	at serialAbelianSandpile.Grid.<init>(Grid.java:32)
+	at serialAbelianSandpile.AutomatonSimulation.main(AutomatonSimulation.java:82)
+Rows: 500, Columns: 500
+Simulation complete, writing image...
+Number of steps to stable state: 66179 
+Time: 77959 ms
+Rows: 500, Columns: 500
+Rows: 600, Columns: 600
+Simulation complete, writing image...
+Number of steps to stable state: 95199 
+Time: 161335 ms
+Rows: 700, Columns: 700
+Simulation complete, writing image...
+Number of steps to stable state: 130103 
+Time: 299996 ms
+Rows: 800, Columns: 800
+Simulation complete, writing image...
+Number of steps to stable state: 169355 
+Time: 507193 ms
+Rows: 100, Columns: 100
+Simulation complete, writing image...
+Number of steps to stable state: 2721 
+Time: 129 ms
+Rows: 200, Columns: 200
+Simulation complete, writing image...
+Number of steps to stable state: 10713 
+Time: 1697 ms
+Rows: 300, Columns: 300
+Simulation complete, writing image...
+Number of steps to stable state: 23824 
+Time: 11934 ms
+Rows: 400, Columns: 400
+Simulation complete, writing image...
+Number of steps to stable state: 42570 
+Time: 32697 ms
+Rows: 500, Columns: 500
+Simulation complete, writing image...
+Number of steps to stable state: 66179 
+Time: 78279 ms
+Rows: 600, Columns: 600
+Simulation complete, writing image...
+Number of steps to stable state: 95199 
+Time: 163311 ms
+Rows: 700, Columns: 700
+Simulation complete, writing image...
+Number of steps to stable state: 130103 
+Time: 327021 ms
+Rows: 800, Columns: 800
+Simulation complete, writing image...
+Number of steps to stable state: 169355 
+Time: 508641 ms
+Rows: 900, Columns: 900
+Simulation complete, writing image...
+Number of steps to stable state: 219101 
+Time: 827074 ms
+Rows: 1000, Columns: 1000
+Simulation complete, writing image...
+Number of steps to stable state: 265189 
+Time: 1255148 ms
