@@ -9,10 +9,14 @@ def validate_results(csv1, csv2, output_path):
    diff = csv1.compare(csv2)
    with open(output_path, mode="w") as o:
        if len(diff) ==0:
-           o.write("No difference!")
+           message = "No difference!"
+           o.write(message)
+           print(message)
        else:
-           o.write(f"""The differences between the two grids are as followed:\n
-{diff}""")
+           message = f"""The differences between the two grids are as followed:\n{diff}"""
+           o.write(message)
+           print(message)
+           
 
 if __name__ == "__main__":
     args = sys.argv

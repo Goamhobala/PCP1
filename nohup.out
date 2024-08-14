@@ -1338,3 +1338,11 @@ Rows: 1000, Columns: 1000
 Simulation complete, writing image...
 Number of steps to stable state: 265189 
 Time: 1255148 ms
+Rows: 128, Columns: 128
+Simulation complete, writing image...
+Number of steps to stable state: 6865 
+Time: 627 ms
+Rows: 64, Columns: 64
+Simulation complete, writing image...
+Number of steps to stable state: 1718 
+Time: 59 ms
