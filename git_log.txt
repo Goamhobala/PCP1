@@ -1,0 +1,221 @@
+commit 0eb36eab10ddeb0b88453dc94a4e68503836c4cb
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Wed Aug 14 20:23:03 2024 +0200
+
+    Final commit For real this time
+
+commit c76843cfc00f0fb71984dc3438d2882d2b8ecf7c
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Wed Aug 14 20:05:58 2024 +0200
+
+    Final commit
+
+commit 008b2f79d94d8116b58ac8f2857d66382c94cfdd
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Tue Aug 13 23:09:45 2024 +0200
+
+    adjusted cutoff value
+
+commit e26948435594646b77426091d3196a651c14733c
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Tue Aug 13 18:52:15 2024 +0200
+
+    adjusted cutoff values
+
+commit 7458a485d59334d062cefbc1d58367dd8627c636
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Mon Aug 12 17:42:36 2024 +0200
+
+    Updated formula for the cutoff value
+
+commit 55f4b1fe9a04ff956aa88449977727e4673a27a9
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Mon Aug 12 15:47:00 2024 +0200
+
+    added a method to output grids as csv, which could then be compared by a python method
+
+commit 21480d52e797dc3131c14e08f217eb86e9c76077
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Mon Aug 12 13:10:56 2024 +0200
+
+    made small changes to gitignore
+
+commit ec00ae48a4975066163116b8060fccf50f60a67f
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Mon Aug 12 13:00:14 2024 +0200
+
+    made run_test to not delete old results when starting a new run
+
+commit 8e0231378ef0abb7017c4e6a163407317e4f71d3
+Author: Goamhobala <youyasushi@youyasushis-Air.lan>
+Date:   Sun Aug 11 22:45:49 2024 +0200
+
+    allow the delay command script to take in arguments for the command
+
+commit 271ea59a325fa887a52c491cddd2c2902630f1c4
+Author: Goamhobala <youyasushi@youyasushis-Air.lan>
+Date:   Sun Aug 11 22:35:22 2024 +0200
+
+    added python script to allow commands to be run after a set time has passed
+
+commit 86d849e5b1fcff160ec74aedb6fb7eb6bc1c46fc
+Author: Goamhobala <youyasushi@youyasushis-Air.lan>
+Date:   Sun Aug 11 22:00:12 2024 +0200
+
+    added time delay for run_test
+
+commit cc87074cc6f5556b43b6190fb92ff46328876055
+Author: Goamhobala <youyasushi@youyasushis-Air.lan>
+Date:   Sun Aug 11 20:53:29 2024 +0200
+
+    optimise cutoff value to maximise speed
+
+commit 26dd341070fc4647f09a40e7fc93995fc37808c1
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Sun Aug 11 15:33:32 2024 +0200
+
+    Added nohup to prevent ssh from timing out
+
+commit 0d3d308cc1f0e82b225964d5277031b4c96f44a5
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Sun Aug 11 14:32:38 2024 +0200
+
+    adjusted .gitignroe to ignore pnd and csv only
+
+commit 383d2999977c1b758bbe069b219e5a2400d80dc9
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Sun Aug 11 14:29:04 2024 +0200
+
+    fixed bugs in .gitignore
+
+commit 3d0ba6e070beafdea00e87ad1313b94359a4574e
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Sun Aug 11 14:24:24 2024 +0200
+
+    updated .gitignore to exclude code analysis reports
+
+commit 7a1de4274d172d2741366b2856ad1442babb1364
+Author: Goamhobala <youyasushi@youyasushis-Air.lan>
+Date:   Sun Aug 11 14:16:17 2024 +0200
+
+    added a test suite to run multiple tests at once
+
+commit 144ed7f837bbe33db27313ff9d7e13ef0ca26033
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Sun Aug 11 13:28:33 2024 +0200
+
+    provide separate commnads for serial and parallel version of the programes
+
+commit 70a5e53e7fc564c4b59772ef3a4e21e526017967
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Sun Aug 11 12:43:57 2024 +0200
+
+    added csv writer to save results of each run in a csv
+
+commit 5425a11d219cff00998452876d2de0dcb9e8ccc3
+Author: Jing Yeh <yhxjin001@nightmare.cs.uct.ac.za>
+Date:   Sun Aug 11 10:07:03 2024 +0000
+
+    Added .gitignore to ignore input csvs and output pngs
+
+commit 3588237c4074ecca763630e9b3b2c788491961bf
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Sun Aug 11 12:02:40 2024 +0200
+
+    fixed bug for non-square grids
+
+commit 1d8652c8834b9c676f08faff9e3dd6347dfeaa56
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Sun Aug 11 09:23:40 2024 +0200
+
+    Adjusted colour for image generation
+
+commit 13121856a58971b20ab109c440f90243af8c84c1
+Author: Jing Yeh <yhxjin001@nightmare.cs.uct.ac.za>
+Date:   Sat Aug 10 21:10:32 2024 +0000
+
+    Added makefile command to generate csv files
+
+commit f8b135b4b46257308411f38a536f9c90a96c189f
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Sat Aug 10 22:37:40 2024 +0200
+
+    fixed OutOfMemory error
+
+commit 164323ef83e5decc98debc669582390132a79f8d
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Sat Aug 10 19:32:08 2024 +0200
+
+    added a python csv generator. Programme works 100%
+
+commit 9955ec0fe47965f0b8da51950e194c09996c76cf
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Sat Aug 10 18:51:38 2024 +0200
+
+    programme works, but recursion causes stack overflow for larger grids
+
+commit 7e0b80a2004a460a0d0d946efcf55d26819abdf4
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Sat Aug 10 18:18:22 2024 +0200
+
+    works but run slow
+
+commit 277e1933baded1b16cd80c281ac42173d7c8fb5f
+Author: Goamhobala <youyasushi@youyasushis-Air.lan>
+Date:   Sat Aug 10 17:34:02 2024 +0200
+
+    Works perfectly for 16x16
+
+commit 286301ef7335cba452ee0e8e92dc35673e38037f
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Sat Aug 10 14:23:51 2024 +0200
+
+    Fixed race condition (it's almost working now, I'm so fucking happy)
+
+commit dc64c3e820947fb4e6cc70d8a30e20680cc1870e
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Fri Aug 9 17:56:22 2024 +0200
+
+    added convertStart anbd convertEnd methods to handle boundaries
+
+commit de30d05a3b7160e47b8780369ad75b9b5b59f547
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Fri Aug 9 11:17:11 2024 +0200
+
+    implemented local copies of updated grid
+
+commit 77087ba6ad023b30cadc830bc933fa6fc772d4e1
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Thu Aug 8 17:23:06 2024 +0200
+
+    fixed boundary values for update
+
+commit bd332adc0bc774f21a721192ad19db51a85b90ea
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Wed Aug 7 18:09:22 2024 +0200
+
+    Fixed parallel version program when serially
+
+commit 392329749d42466f51829de1e69f976995fd47a9
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Tue Aug 6 17:55:16 2024 +0200
+
+    fixed infinite loop issue
+
+commit cb07673c5026c1ac86261e79ebddd1ea2bfbc38a
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Tue Aug 6 17:38:04 2024 +0200
+
+    Changed the code so that it doesn't create new grids for every recursion
+
+commit 44601762c7e7b313033e752d1ebfa37891e11ecd
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Mon Aug 5 17:05:50 2024 +0200
+
+    employing the decorator pattern to parallelise grid
+
+commit 6cb85684602e7d683e8e750b8e1983138627cee8
+Author: Goamhobala <youyasushi@youyasushis-MacBook-Air.local>
+Date:   Mon Aug 5 17:00:19 2024 +0200
+
+    initial commit

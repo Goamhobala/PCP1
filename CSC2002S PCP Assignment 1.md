@@ -76,18 +76,22 @@ Here's the command that was run for 10 times:
 make run_test TEST_INFO="100 1000 100 4"
 ```
 
+<div style="page-break-after: always; visibility: hidden">
+\pagebreak
+</div>
+
 
 ## 2. Discussion
 ### 2.1 Speedup Graphs
 ![[speedUp.png]]
 ### 2.2 Effects of Different Data Sizes
-For smaller grids (grid size < 300x300 for 8-core and 500x500 for 4-core), the serial algorithm tend to run faster than the parallel algorithm. This is due to the overhead caused by multithreading. However, as the grid size increases, we can observe an increase in the speed up value as well. This is where parallel programming shines, as the benefit of dividing tasks amongst threads begins to outweighs the effects of overhead.
+For smaller grids (grid size < 300x300 for 8-core and 500x500 for 4-core), the serial algorithm tend to run faster than the parallel algorithm. This is due to the overhead caused by multithreading. However, as the grid size increases, we can observe an increase in the speed up value as well. This is where parallel programming shines, as the benefit of dividing tasks amongst threads begins to outweighs the effects of overhead. This is known as soft scaling.
 ### 2.3 Effects of Different Computer Architecture
 Theoretically, the ideal speed up for the 8-core machine should be 2x greater than that of the 4-core machine - this is generally the case. However,  thanks to the hyperthreading technology that extends, achieved partly through time-slicing, and I have no way of controlling which threads the program would run on, the speedup I observed is not as significant.
 ### 2.4 General Trends
 As discussed, the speed of the parallel algorithm begins to surpass the serial version as the grid size increases.  Further, I can also observe increase in speed as the number of cores of the machine increases.
 
-There is a spike in speedup for grid size of 400 because this is the value that the cutoff value begins dividing tasks amongst multiple threads. 
+There is a spike in speedup for grid size of 400 because this is the value that the cutoff value begins dividing tasks amongst multiple threads.  Sometimes the parallel algorithm can suddenly take longer than usual to run. This is mostly because too many applications are being run in the background. 
 
 ## 3. Conclusion
 I have run the parallelisation on two different machines: one 8-physical -ore machine (Apple M1) with 1 thread per core, and a 4-physical core machine (intel i5-8250U) with 8 logical cores (2 threads per core). I found that, for the relatively small data sets tested, significant speed up can be observed on the Macbook as the size of the grid increases, and a minor increase in speed up for the Windows Surface Laptop 2. Overall, parallelisation is worthwhile as long as the data size / number of steps required to complete the task is relatively large and CPUs with multiple physical cores are available.

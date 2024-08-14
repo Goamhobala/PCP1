@@ -11,7 +11,7 @@ import java.util.concurrent.ForkJoinPool;
  * Further adapeted by Jing Yeh YHXJIN001
  * Adapted from "Abelian Sandpile Simulation" by Michelle Kuttel 2024, University of Cape Town
  * Peachy Parallel Assignments (EduPar 2022)"  
- * developed by Bu\:cker, Casanova and Da Silva  (∗Institute for Computer Science, Friedrich Schiller University Jena, Jena, Germany)
+ * developed by Bucker, Casanova and Da Silva (Institute for Computer Science, Friedrich Schiller University Jena, Jena, Germany)
  */
 
 class AutomatonSimulation{
